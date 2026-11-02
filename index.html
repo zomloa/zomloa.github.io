@@ -321,11 +321,11 @@ function initMap(){
   map=L.map('map',{zoomSnap:.25,minZoom:9,maxZoom:18}).setView([46.83,-71.29],11.25);
   map.attributionControl.setPrefix(false);
   const t=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'});
-  let ok=false;t.on('tileload',()=>{ok=true;});t.on('tileerror',()=>{if(!ok)t.remove();});t.addTo(map);
+  let ok=false;t.on('tileload',()=>{if(!ok){ok=true;if(window._grid)map.removeLayer(window._grid);if(window._qlbl)map.removeLayer(window._qlbl);}});t.on('tileerror',()=>{if(!ok)t.remove();});t.addTo(map);
   const lines=[];for(let i=-15;i<=15;i++){const la=46.83+i/110.57,lo=-71.29+i/(111.32*Math.cos(46.83*Math.PI/180));
     lines.push([[la,-71.29-15/76.1],[la,-71.29+15/76.1]]);lines.push([[46.83-15/110.57,lo],[46.83+15/110.57,lo]]);}
-  L.polyline(lines,{color:tok('--grid'),weight:1,interactive:false}).addTo(map);
-  QUARTIERS.forEach(q=>L.marker([q[1],q[2]],{interactive:false,keyboard:false,icon:L.divIcon({className:'qlbl',html:esc(q[0]),iconSize:[150,14],iconAnchor:[75,7]})}).addTo(map));
+  if(!ok)window._grid=L.polyline(lines,{color:tok('--grid'),weight:1,interactive:false}).addTo(map);
+  if(!ok)window._qlbl=L.layerGroup(QUARTIERS.map(q=>L.marker([q[1],q[2]],{interactive:false,keyboard:false,icon:L.divIcon({className:'qlbl',html:esc(q[0]),iconSize:[150,14],iconAnchor:[75,7]})}))).addTo(map);
   layer=L.layerGroup().addTo(map);orgLayer=L.layerGroup().addTo(map);
   map.on('click',e=>{P.lat=+e.latlng.lat.toFixed(5);P.lon=+e.latlng.lng.toFixed(5);P.olabel='Point choisi sur la carte';save();update();$('cpmsg').textContent='';});
 }
