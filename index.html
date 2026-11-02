@@ -115,6 +115,32 @@ select,input[type=search]{font:inherit;font-size:16px;color:var(--ink);backgroun
 .pop b{display:block;font-size:14px}
 .pop span{display:block;font-size:12.5px;color:var(--muted)}
 
+
+/* Mes alertes */
+.alerts{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px}
+.ahead{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.ahead .lbl{color:var(--accent)}
+.ahead .tog{margin-left:auto}
+.aform{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+.aform input[type=text]{font:inherit;font-size:16px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.aform .ex{display:flex;flex-wrap:wrap;gap:6px}
+.aform .ex button{border:1px dashed var(--line);background:transparent;border-radius:999px;padding:4px 10px;font-size:13px;cursor:pointer;color:var(--muted)}
+.arow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.arow select{width:auto}
+.alist{display:grid;gap:8px}
+.aitem{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.aitem b{font-weight:700;overflow-wrap:anywhere}
+.aitem span{font-size:13.5px;color:var(--muted)}
+.aitem .cnt{font-family:var(--f-mono);font-size:13px;color:var(--new)}
+.aitem .del{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:13px}
+.amatch{display:grid;gap:8px}
+.amatch .bar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;background:var(--new-bg);border-radius:10px;padding:10px 12px}
+.amatch .bar b{color:var(--new)}
+.amatch .bar button{margin-left:auto}
+.ahelp{font-size:13px;color:var(--muted);margin:0}
+.aform[hidden],.amatch[hidden]{display:none}
+.job .hit{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:0 6px}
+
 /* Pied */
 .foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;border-top:1px solid var(--line);padding-top:18px}
 .foot h2{font-size:17px;margin-bottom:6px}
@@ -188,6 +214,28 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
   </section>
 
+
+  <section class="alerts" id="alerts" aria-labelledby="ah">
+    <div class="ahead"><span class="lbl">Mes alertes</span><h2 id="ah">Soyez averti des emplois qui vous intéressent</h2>
+      <button class="btn tog" id="aadd" type="button" aria-expanded="false" aria-controls="aform">Créer une alerte</button></div>
+    <div class="amatch" id="amatch" hidden></div>
+    <div class="alist" id="alist"></div>
+    <form class="aform" id="aform" hidden autocomplete="off">
+      <label for="akw" class="lbl">Quel emploi cherchez-vous ?</label>
+      <input id="akw" type="text" placeholder="ex. data analyst, analyste de données" aria-describedby="akwh">
+      <p class="ahelp" id="akwh">Séparez plusieurs mots par des virgules : une offre correspond si elle contient l'un d'eux.</p>
+      <div class="ex" id="aex"></div>
+      <div class="arow">
+        <label for="adom" class="lbl">Domaine</label>
+        <select id="adom"><option value="">Tous les domaines</option></select>
+        <label for="ar" class="lbl">Distance</label>
+        <select id="ar"><option value="2">2 km</option><option value="5" selected>5 km</option><option value="10">10 km</option><option value="0">Toute la ville</option></select>
+      </div>
+      <p class="ahelp" id="aorig"></p>
+      <div class="arow"><button class="btn pri" type="submit">Enregistrer l'alerte</button><button class="btn" type="button" id="acancel">Annuler</button></div>
+    </form>
+    <p class="ahelp">Vos alertes restent sur cet appareil, dans ce navigateur. À chaque visite, les nouvelles offres qui correspondent s'affichent ici. Astuce : ajoutez ce site à l'écran d'accueil de votre téléphone pour l'ouvrir en un geste.</p>
+  </section>
   <section class="newbox" aria-labelledby="newh">
     <div class="newhead"><span class="lbl" id="newlbl">Nouveau</span><h2 id="newh">Offres repérées récemment</h2></div>
     <div class="strip" id="strip"></div>
@@ -306,7 +354,7 @@ function renderList(){
   if(!ALL.length){$('list').innerHTML='<div class="empty">Les offres arrivent avec la première mise à jour du matin.</div>';$('more').hidden=true;return;}
   if(!n){$('list').innerHTML='<div class="empty">Aucune offre ne correspond. Essayez une distance plus grande ou retirez un filtre de domaine.</div>';$('more').hidden=true;return;}
   $('list').innerHTML=VIEW.slice(0,shown).map(x=>'<article class="job'+(sel===x.id?' on':'')+'" data-id="'+esc(x.id)+'">'+
-    '<div class="top"><span class="dom"><i style="background:var('+domVar(x.domaine)+')"></i>'+esc(x.domaine)+'</span>'+(isToday(x)?'<span class="badge">Nouveau aujourd\'hui</span>':isNew(x)?'<span class="badge">Nouveau</span>':'')+'</div>'+
+    '<div class="top"><span class="dom"><i style="background:var('+domVar(x.domaine)+')"></i>'+esc(x.domaine)+'</span>'+(isToday(x)?'<span class="badge">Nouveau aujourd\'hui</span>':isNew(x)?'<span class="badge">Nouveau</span>':'')+(typeof ALERTS!=='undefined'&&ALERTS.length&&alertHits(x)?'<span class="hit">Mon alerte</span>':'')+'</div>'+
     '<h3>'+esc(x.titre)+'</h3><div class="co">'+esc(x.entreprise)+'</div>'+
     '<div class="meta">'+(x._d!=null?'<span class="km">'+km(x._d)+'</span>':'')+'<span>'+esc(x.quartier||x.adresse||'Lieu à confirmer')+'</span>'+(x.mode?'<span>'+esc(x.mode)+'</span>':'')+(x.date_publication?'<span>Publiée le '+dateFr(x.date_publication)+'</span>':'')+'</div>'+
     (x.resume?'<p>'+esc(x.resume)+'</p>':'')+(x.adresse_a_verifier?'<span class="warn">Lieu de travail approximatif : vérifiez l\'adresse dans l\'offre.</span>':'')+
@@ -368,6 +416,50 @@ $('from').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)
 $('allnew').addEventListener('click',()=>{P.sort='new';P.r=0;P.doms=[];$('sort').value='new';save();update();document.querySelector('.main').scrollIntoView({behavior:'smooth'});});
 $('mt').addEventListener('click',()=>openMap($('mapcard').dataset.open!=='1'));
 $('mode').value=P.mode;$('sort').value=P.sort;
-renderStamp();initMap();update();
+
+/* ===== Mes alertes (stockées dans ce navigateur) ===== */
+const AK='emplois-quebec-alertes',VK='emplois-quebec-vu';
+const fold=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+let ALERTS=[];try{ALERTS=JSON.parse(localStorage.getItem(AK)||'[]');}catch(e){}
+let LASTSEEN='';try{LASTSEEN=localStorage.getItem(VK)||'';}catch(e){}
+const saveAlerts=()=>{try{localStorage.setItem(AK,JSON.stringify(ALERTS));}catch(e){}};
+function matches(a,x){
+  if(a.dom&&x.domaine!==a.dom)return false;
+  if(a.r){if(x.latitude==null)return false;if(hv(a.lat,a.lon,x.latitude,x.longitude)>a.r)return false;}
+  const t=fold(x.titre+' '+(x.resume||'')+' '+x.entreprise);
+  return a.kw.length===0||a.kw.some(k=>t.includes(fold(k)));
+}
+const alertHits=x=>ALERTS.some(a=>matches(a,x));
+const isFresh=x=>!LASTSEEN||(x.premiere_detection||'')>LASTSEEN;
+function renderAlerts(){
+  $('alist').innerHTML=ALERTS.map((a,i)=>{const all=ALL.filter(x=>matches(a,x)),nw=all.filter(isFresh).length;
+    return '<div class="aitem"><div><b>'+esc(a.kw.join(', ')||'Toutes les offres')+'</b><br><span>'+esc(a.dom||'Tous les domaines')+' · '+(a.r?'moins de '+a.r+' km de '+esc(a.label):'toute la ville')+'</span><br>'+
+      '<span class="cnt">'+all.length+' offre'+(all.length>1?'s':'')+' en cours'+(nw?' · '+nw+' nouvelle'+(nw>1?'s':''):'')+'</span></div>'+
+      '<button type="button" class="del" data-i="'+i+'" aria-label="Supprimer l\'alerte '+esc(a.kw.join(', '))+'">Supprimer</button></div>';}).join('');
+  $('alist').querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{ALERTS.splice(+b.dataset.i,1);saveAlerts();renderAlerts();renderList();}));
+  const hits=ALL.filter(x=>alertHits(x)&&isFresh(x));
+  if(!ALERTS.length){$('amatch').hidden=true;$('aadd').textContent='Créer une alerte';return;}
+  $('aadd').textContent='Ajouter une alerte';
+  $('amatch').hidden=false;
+  $('amatch').innerHTML=hits.length
+    ?'<div class="bar"><b>'+hits.length+' nouvelle'+(hits.length>1?'s':'')+' offre'+(hits.length>1?'s':'')+' pour vos alertes</b><span>'+(LASTSEEN?'depuis votre visite du '+dateFr(LASTSEEN):'')+'</span><button class="btn" type="button" id="aseen">Marquer comme vues</button></div>'+
+      hits.slice(0,8).map(x=>'<button type="button" class="ncard" data-id="'+esc(x.id)+'" style="text-align:left"><span class="dom"><i style="background:var('+domVar(x.domaine)+')"></i>'+esc(x.domaine)+'</span><b>'+esc(x.titre)+'</b><span>'+esc(x.entreprise)+(x.quartier?' · '+esc(x.quartier):'')+'</span></button>').join('')
+    :'<div class="bar"><span>Aucune nouvelle offre pour vos alertes depuis votre dernière visite. La liste est mise à jour chaque matin.</span></div>';
+  $('amatch').querySelectorAll('.ncard').forEach(c=>c.addEventListener('click',()=>focusJob(c.dataset.id)));
+  const s=$('aseen');if(s)s.addEventListener('click',()=>{const m=ALL.reduce((v,x)=>(x.premiere_detection||'')>v?x.premiere_detection:v,LASTSEEN);LASTSEEN=m;try{localStorage.setItem(VK,m);}catch(e){}renderAlerts();});
+}
+function openAlertForm(v){$('aform').hidden=!v;$('aadd').setAttribute('aria-expanded',String(v));
+  if(v){const o=origin();$('aorig').textContent='La distance sera calculée depuis : '+o.label+'. Changez votre point de départ plus haut si besoin.';$('akw').focus();}}
+$('adom').innerHTML+=DOMS.map(d=>'<option>'+esc(d[0])+'</option>').join('');
+$('aex').innerHTML=['data analyst','analyste de données','technicien informatique','caissier','préposé','cuisinier','commis','chauffeur'].map(k=>'<button type="button">'+esc(k)+'</button>').join('');
+$('aex').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const v=$('akw').value.trim();$('akw').value=v?(v.replace(/,\s*$/,'')+', '+b.textContent):b.textContent;$('akw').focus();}));
+$('aadd').addEventListener('click',()=>openAlertForm($('aform').hidden));
+$('acancel').addEventListener('click',()=>openAlertForm(false));
+$('aform').addEventListener('submit',e=>{e.preventDefault();const o=origin();
+  const kw=$('akw').value.split(',').map(s=>s.trim()).filter(Boolean);
+  ALERTS.push({kw,dom:$('adom').value,r:+$('ar').value,lat:o.lat,lon:o.lon,label:o.label});saveAlerts();
+  $('akw').value='';openAlertForm(false);renderAlerts();renderList();$('alerts').scrollIntoView({behavior:'smooth',block:'start'});});
+renderStamp();initMap();update();renderAlerts();
+
 </script>
 </body></html>
