@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>David Mvondo Medjo, analyste de données à Québec</title>
-<meta name="description" content="Portfolio de David Mvondo Medjo, analyste de données à Québec : projets en Python, SQL et Power BI.">
+<meta name="description" content="Portfolio de David Mvondo Medjo, analyste de données à Québec : projets en Python, SQL et Power BI, et usage efficace de l'IA Claude.">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,7 +65,8 @@
   .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: end; padding: 56px 0 72px; }
   .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.025em; margin-bottom: 22px; }
   .hero .role { font-family: var(--display); font-weight: 500; font-size: 1.35rem; color: var(--slate); margin-bottom: 18px; }
-  .hero .intro { max-width: 38em; margin-bottom: 28px; }
+  .hero .intro { max-width: 38em; margin-bottom: 14px; }
+  .hero .actions { margin-top: 26px; }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
     display: inline-block; padding: 11px 20px; border-radius: 6px; font-weight: 700;
@@ -177,8 +178,9 @@
   <header class="hero">
     <div>
       <h1>David Mvondo Medjo</h1>
-      <p class="role">Analyste de données à Québec</p>
+      <p class="role">Analyste de données à Québec, spécialisé dans l'usage de l'IA</p>
       <p class="intro">Je transforme des données brutes en constats clairs, avec Python, SQL et Power BI. Pendant dix ans, j'ai administré le système de gestion des notes d'une université : j'en ai gardé le goût de la rigueur et le réflexe de vérifier chaque chiffre avant de le présenter.</p>
+      <p class="intro">J'utilise aussi Claude, l'IA d'Anthropic, comme un véritable assistant d'analyse : il m'aide à explorer les données, à écrire et déboguer le code, à automatiser les tâches répétitives et à rédiger les rapports. Je garde la main sur les décisions, et chaque résultat est vérifié avant d'être présenté.</p>
       <div class="actions">
         <a class="btn primary" href="#projets">Voir mes projets</a>
         <a class="btn" href="https://www.linkedin.com/in/dave-mvondo-403713239/">LinkedIn</a>
@@ -219,26 +221,6 @@
         <a class="btn primary" href="https://github.com/zomloa/accidents-capitale-nationale">Voir le projet</a>
       </div>
     </article>
-
-    <div class="grid">
-      <article class="project">
-        <a class="shot" href="https://github.com/zomloa/SQL---Analyse-RH-DataLendo"><img src="assets/rh_turnover.png" alt="Graphique du taux de roulement par département" loading="lazy"></a>
-        <h3>Ressources humaines : effectifs et roulement du personnel</h3>
-        <p class="tools">SQL (SQLite, fonctions de fenêtre), Python, Excel</p>
-        <p>Étude de cas : 15 questions d'un gestionnaire RH sur 1 500 employés, traitées en SQL, avec une synthèse et des recommandations.</p>
-        <p class="result">Roulement de 11,4 % sur 12 mois. Les écarts entre départements ne sont pas statistiquement significatifs.</p>
-        <a class="more" href="https://github.com/zomloa/SQL---Analyse-RH-DataLendo">Voir le projet</a>
-      </article>
-
-      <article class="project">
-        <a class="shot" href="https://github.com/zomloa/afrimarketproject"><img src="assets/afrimarket_categories.png" alt="Graphiques du chiffre d'affaires, du taux de retour et de la rentabilité par catégorie" loading="lazy"></a>
-        <h3>Ventes et rentabilité d'un commerce en ligne</h3>
-        <p class="tools">Python (pandas), Streamlit, présentation à la direction</p>
-        <p>Étude de cas : nettoyage, indicateurs de rentabilité, tableau de bord Streamlit, rapport et présentation de 16 diapositives.</p>
-        <p class="result">L'électronique fait 71 % du chiffre d'affaires mais a le taux de retour le plus élevé ; la maison est la catégorie la plus rentable.</p>
-        <a class="more" href="https://github.com/zomloa/afrimarketproject">Voir le projet</a>
-      </article>
-    </div>
 
     <aside class="civic">
       <div>
@@ -360,7 +342,7 @@
       </article>
       <article class="skill">
         <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span><h3>Intelligence artificielle</h3></div>
-        <p>Claude pour accélérer l'analyse, l'automatisation et la rédaction, avec vérification systématique des résultats.</p>
+        <ul class="chips"><li>Claude</li><li>Exploration des données</li><li>Code Python et SQL</li><li>Automatisation</li><li>Rédaction de rapports</li><li>Vérification des résultats</li></ul>
       </article>
       <article class="skill">
         <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg></span><h3>Langues</h3></div>
