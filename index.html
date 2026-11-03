@@ -1,465 +1,147 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Offres d'emploi à Québec, mises à jour chaque matin. Choisissez votre quartier ou votre code postal pour voir les emplois proches de chez vous."><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta property="og:title" content="Emplois proches Québec"><meta property="og:description" content="Des emplois près de chez vous, à Québec, mis à jour chaque matin."><meta property="og:image" content="logo.png"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Emplois proches Québec</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Mvondo Medjo – Analyste de données</title>
+<meta name="description" content="Portfolio de David Mvondo Medjo, analyste de données junior à Québec : Python, SQL, Power BI.">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Layout : bandeau d'accueil (titre + point de départ), « nouveau aujourd'hui » en défilement horizontal,
-   puis liste filtrable à gauche et carte collante à droite (une seule colonne sur téléphone), pied de page pratique. */
-:root{
-  --bg:#f3f5f8; --surface:#ffffff; --ink:#132338; --muted:#56657a; --line:#d8dfe8; --chip:#e9eef4;
-  --accent:#1f7a34; --accent-ink:#ffffff; --new:#b45309; --new-bg:#fdf1e2; --map:#e8edf2; --grid:#d4dce5;
-  --d-info:#2b59c3; --d-resto:#c2410c; --d-comm:#7c3aed; --d-entre:#0f766e; --d-sante:#be185d; --d-educ:#a16207; --d-admin:#475569;
-  --f-display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
-  --f-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
-  --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0e1621; --surface:#152130; --ink:#e6edf5; --muted:#9aa9bb; --line:#26364a; --chip:#1d2b3d;
-  --accent:#74d08a; --accent-ink:#0b1a10; --new:#f5b05b; --new-bg:#2c2214; --map:#111c28; --grid:#1f2d3e;
-  --d-info:#7aa2ff; --d-resto:#fb923c; --d-comm:#b79cff; --d-entre:#4fd1c5; --d-sante:#f472b6; --d-educ:#facc15; --d-admin:#a3b1c2; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0e1621; --surface:#152130; --ink:#e6edf5; --muted:#9aa9bb; --line:#26364a; --chip:#1d2b3d;
-  --accent:#74d08a; --accent-ink:#0b1a10; --new:#f5b05b; --new-bg:#2c2214; --map:#111c28; --grid:#1f2d3e;
-  --d-info:#7aa2ff; --d-resto:#fb923c; --d-comm:#b79cff; --d-entre:#4fd1c5; --d-sante:#f472b6; --d-educ:#facc15; --d-admin:#a3b1c2; color-scheme:dark}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;
-  padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.wrap{max-width:1240px;margin:0 auto;display:grid;gap:22px}
-h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h2{font-family:var(--f-display);font-weight:600;font-size:21px;line-height:1.2;margin:0;text-wrap:balance}
-.lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
-a{color:var(--accent)}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-button{font:inherit;color:inherit}
-
-/* Accueil */
-.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px;align-items:end}
-@media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}}
-.brand{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.brand img{width:72px;height:72px;border-radius:50%;background:#fff;flex:none}
-.hero p.sub{margin:10px 0 0;color:var(--muted);max-width:60ch}
-.stamp{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
-.stamp b{color:var(--ink);font-weight:500}
-.origin{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px}
-.origin label{display:block}
-select,input[type=search]{font:inherit;font-size:16px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
-.seg{display:flex;flex-wrap:wrap;gap:6px}
-.seg button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;cursor:pointer;font-size:14px}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
-.hint{font-size:13px;color:var(--muted);margin:0}
-.cpf{display:grid;gap:6px}
-.cprow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
-.cprow input{font:inherit;font-size:16px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;text-transform:uppercase}
-.hint.err{color:var(--new)}
-
-/* Nouveau aujourd'hui */
-.newbox{display:grid;gap:10px}
-.newhead{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
-.newhead .lbl{color:var(--new)}
-.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.ncard{min-width:0;background:var(--new-bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:4px;text-align:left;cursor:pointer}
-.ncard b{font-weight:700;line-height:1.25;overflow-wrap:anywhere}
-.allnew{justify-self:start}
-.ncard span{font-size:13.5px;color:var(--muted)}
-.ncard .km{font-family:var(--f-mono);font-size:12.5px;color:var(--new)}
-.nempty{color:var(--muted);font-size:14px;margin:0}
-
-/* Corps */
-.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:22px;align-items:start}
-@media (max-width:980px){.main{grid-template-columns:minmax(0,1fr)}}
-.col{display:grid;gap:14px;min-width:0}
-.filters{display:grid;gap:10px}
-.doms{display:flex;flex-wrap:wrap;gap:6px}
-.doms button{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:14px}
-.doms button i{width:10px;height:10px;border-radius:50%;display:inline-block}
-.doms button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
-.doms button .n{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
-.row2{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px}
-@media (max-width:560px){.row2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.row2 input{grid-column:1/-1}}
-.row2 select{width:auto}
-.count{font-family:var(--f-mono);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
-.maptoggle{display:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;cursor:pointer;font-size:14px}
-@media (max-width:980px){.maptoggle{display:inline-block}}
-
-.list{display:grid;gap:10px}
-.job{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:6px;cursor:pointer}
-.job.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.job .top{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
-.dom{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted)}
-.dom i{width:9px;height:9px;border-radius:50%}
-.badge{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--new);background:var(--new-bg);border-radius:6px;padding:1px 7px}
-.job h3{margin:0;font-size:18px;line-height:1.25;font-weight:700}
-.job .co{color:var(--ink)}
-.job .meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:var(--muted)}
-.job .meta .km{font-family:var(--f-mono);color:var(--ink);font-variant-numeric:tabular-nums}
-.job p{margin:0;font-size:14.5px;color:var(--muted);max-width:68ch}
-.job .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.btn{display:inline-flex;align-items:center;gap:6px;border-radius:9px;padding:8px 13px;font-size:14.5px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
-.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.warn{font-size:13px;color:var(--new)}
-.empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:28px 18px;text-align:center;color:var(--muted)}
-.more{justify-self:center}
-
-/* Carte */
-.mapcard{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;gap:8px;min-width:0}
-@media (max-width:980px){.mapcard{position:static}.mapcard[data-open="0"]{display:none}}
-#map{height:min(70vh,640px);min-height:360px;border-radius:10px;background:var(--map)}
-.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--muted)}
-.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
-.mk{display:grid!important;place-items:center;border-radius:50%;border:2px solid var(--surface);box-shadow:0 1px 4px rgba(0,0,0,.35);color:#fff;font:600 10px var(--f-mono)}
-.mk.sel{outline:3px solid var(--ink);outline-offset:1px}
-.org{display:grid!important;place-items:center}
-.org i{width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid var(--surface);box-shadow:0 0 0 2px var(--ink)}
-.qlbl{font:700 10.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap;text-align:center;pointer-events:none;text-shadow:0 0 3px var(--map),0 0 3px var(--map)}
-.pop b{display:block;font-size:14px}
-.pop span{display:block;font-size:12.5px;color:var(--muted)}
-
-
-/* Mes alertes */
-.alerts{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px}
-.ahead{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
-.ahead .lbl{color:var(--accent)}
-.ahead .tog{margin-left:auto}
-.aform{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:12px}
-.aform input[type=text]{font:inherit;font-size:16px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
-.aform .ex{display:flex;flex-wrap:wrap;gap:6px}
-.aform .ex button{border:1px dashed var(--line);background:transparent;border-radius:999px;padding:4px 10px;font-size:13px;cursor:pointer;color:var(--muted)}
-.arow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.arow select{width:auto}
-.alist{display:grid;gap:8px}
-.aitem{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.aitem b{font-weight:700;overflow-wrap:anywhere}
-.aitem span{font-size:13.5px;color:var(--muted)}
-.aitem .cnt{font-family:var(--f-mono);font-size:13px;color:var(--new)}
-.aitem .del{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:13px}
-.amatch{display:grid;gap:8px}
-.amatch .bar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;background:var(--new-bg);border-radius:10px;padding:10px 12px}
-.amatch .bar b{color:var(--new)}
-.amatch .bar button{margin-left:auto}
-.ahelp{font-size:13px;color:var(--muted);margin:0}
-.aform[hidden],.amatch[hidden]{display:none}
-.job .hit{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:0 6px}
-
-/* Pied */
-.foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;border-top:1px solid var(--line);padding-top:18px}
-.foot h2{font-size:17px;margin-bottom:6px}
-.foot p,.foot li{font-size:14.5px;color:var(--muted);margin:0}
-.foot ul{margin:0;padding-left:18px;display:grid;gap:4px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-/* Leaflet 1.9.4 : sous-ensemble essentiel de leaflet.css (inline, la CSP bloque les feuilles externes) */
-.leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0}
-.leaflet-container{overflow:hidden;font-family:var(--f-body);-webkit-tap-highlight-color:transparent;outline-offset:1px}
-.leaflet-container a{color:var(--data)}
-.leaflet-tile{visibility:hidden;user-select:none}.leaflet-tile-loaded{visibility:inherit}
-.leaflet-container img.leaflet-tile{max-width:none!important;max-height:none!important}
-.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}
-.leaflet-pane svg path{fill-rule:evenodd}
-.leaflet-control{position:relative;z-index:800;pointer-events:auto;float:left;clear:both}
-.leaflet-top,.leaflet-bottom{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-right{right:0}
-.leaflet-top .leaflet-control{margin-top:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{float:right;margin-right:10px}.leaflet-bottom .leaflet-control{margin-bottom:8px}
-.leaflet-interactive{cursor:pointer}
-.leaflet-grab{cursor:grab}.leaflet-dragging .leaflet-grab{cursor:grabbing}
-.leaflet-bar{border-radius:6px;border:1px solid var(--line);background:var(--surface);overflow:hidden}
-.leaflet-bar a{display:block;width:30px;height:30px;line-height:30px;text-align:center;text-decoration:none;color:var(--ink);font-weight:600;border-bottom:1px solid var(--line)}
-.leaflet-bar a:last-child{border-bottom:0}
-.leaflet-control-attribution{background:var(--surface);color:var(--muted);font-size:10px;padding:0 5px;opacity:.9}
-.leaflet-control-scale-line{border:2px solid var(--ring);border-top:none;color:var(--ink);font:500 10px var(--f-mono);padding:1px 5px;background:var(--surface);opacity:.9}
-.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}
-.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:8px;background:var(--surface);color:var(--ink);box-shadow:0 3px 14px rgba(0,0,0,.3)}
-.leaflet-popup-content{margin:10px 14px;line-height:1.4;font-size:13px;min-width:230px}
-.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}
-.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;transform:rotate(45deg);background:var(--surface)}
-.leaflet-popup-close-button{position:absolute;top:0;right:0;width:24px;height:24px;text-align:center;text-decoration:none;color:var(--muted)!important;font:16px/24px sans-serif}
-.leaflet-zoom-animated{transform-origin:0 0}
-.leaflet-zoom-anim .leaflet-zoom-animated{transition:transform .25s cubic-bezier(0,0,.25,1)}
-svg.leaflet-zoom-animated{will-change:transform}
-.leaflet-container{background:var(--map)}
+  :root {
+    --bg: #f7f8fa; --surface: #ffffff; --text: #1b1f24; --muted: #5b6573;
+    --accent: #1565c0; --accent-soft: #e7f0fb; --border: #e3e6ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151a; --surface: #1b2027; --text: #e8ebef; --muted: #a2acb8;
+      --accent: #6aa7ef; --accent-soft: #1f2d3f; --border: #2b323b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+         background: var(--bg); color: var(--text); line-height: 1.6; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 72px 0 48px; }
+  .kicker { color: var(--accent); font-weight: 600; margin: 0 0 8px; }
+  h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; margin: 0 0 16px; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 660px; margin: 0 0 28px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; text-decoration: none;
+         font-weight: 600; font-size: .95rem; border: 1px solid var(--border);
+         color: var(--text); background: var(--surface); }
+  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  section { padding: 40px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 1.5rem; margin: 0 0 20px; }
+  h3 { font-size: 1.2rem; margin: 0 0 8px; }
+  p { margin: 0 0 14px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+  .skills li { background: var(--accent-soft); color: var(--accent); padding: 6px 14px;
+               border-radius: 999px; font-weight: 500; font-size: .95rem; }
+  .project { background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+             overflow: hidden; margin-bottom: 28px; }
+  .project img { width: 100%; display: block; border-bottom: 1px solid var(--border); }
+  .project .body { padding: 24px; }
+  .tags { color: var(--muted); font-size: .9rem; margin-bottom: 16px; }
+  .findings { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+  .finding { background: var(--bg); border-radius: 10px; padding: 14px 16px; }
+  .finding strong { display: block; font-size: 1.5rem; color: var(--accent); line-height: 1.2; }
+  .finding span { color: var(--muted); font-size: .92rem; }
+  .timeline { list-style: none; padding: 0; margin: 0; }
+  .timeline li { padding: 0 0 18px 18px; border-left: 2px solid var(--border); position: relative; }
+  .timeline li::before { content: ""; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px;
+                         border-radius: 50%; background: var(--accent); }
+  .timeline .when { color: var(--muted); font-size: .9rem; }
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--border); color: var(--muted); font-size: .92rem; }
+  a { color: var(--accent); }
 </style>
-
+</head>
+<body>
 <div class="wrap">
-  <section class="hero" aria-labelledby="h1">
-    <div>
-      <div class="brand"><img src="data:image/png;base64,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" alt="Logo Bangos" width="72" height="72"><p class="lbl">Bangos · Ville de Québec · offres publiques</p></div>
-      <h1 id="h1">Des emplois près de chez vous, à Québec</h1>
-      <p class="sub">Chaque matin, cette page rassemble des offres d'emploi publiées sur les grands sites d'emploi et les pages carrières des employeurs de Québec. Choisissez votre quartier pour voir d'abord ce qui est proche de vous.</p>
-      <div class="stamp"><span>Mise à jour : <b id="upd">—</b></span><span><b id="ntot">0</b> offres en cours</span><span><b id="nnew">0</b> nouvelles cette semaine</span></div>
+
+  <header>
+    <p class="kicker">Analyste de données junior · Québec</p>
+    <h1>David Mvondo Medjo</h1>
+    <p class="lead">Je transforme des données brutes en réponses claires, avec Python, SQL et Power BI. Dix ans d'expérience dans l'administration d'un système d'information universitaire, et une formation en science des données.</p>
+    <div class="links">
+      <a class="btn primary" href="#projets">Voir mes projets</a>
+      <a class="btn" href="https://github.com/zomloa">GitHub</a>
+      <a class="btn" href="mailto:mvondodave@gmail.com">Me contacter</a>
     </div>
-    <div class="origin" aria-label="Votre point de départ">
-      <label for="q" class="lbl">Votre point de départ</label>
-      <select id="q"></select>
-      <form class="cpf" id="cpf" autocomplete="off">
-        <label for="cp" class="lbl">Ou votre code postal</label>
-        <div class="cprow"><input id="cp" type="text" inputmode="text" maxlength="7" placeholder="ex. G2B 1G8" aria-describedby="cpmsg"><button class="btn pri" type="submit">Utiliser</button></div>
-        <p class="hint" id="cpmsg" aria-live="polite"></p>
-      </form>
-      <p class="hint" id="ohint">Vous pouvez aussi toucher la carte pour placer votre point de départ exact.</p>
-      <div>
-        <div class="lbl" id="rlbl" style="margin-bottom:6px">Distance maximale</div>
-        <div class="seg" id="radius" role="group" aria-labelledby="rlbl">
-          <button type="button" data-r="2">2 km</button><button type="button" data-r="5">5 km</button>
-          <button type="button" data-r="10">10 km</button><button type="button" data-r="0">Toute la ville</button>
-        </div>
-      </div>
-      <div>
-        <div class="lbl" id="tlbl" style="margin-bottom:6px">Itinéraires Google Maps</div>
-        <div class="seg" id="travel" role="group" aria-labelledby="tlbl">
-          <button type="button" data-t="transit">Autobus</button><button type="button" data-t="walking">À pied</button>
-          <button type="button" data-t="bicycling">Vélo</button><button type="button" data-t="driving">Auto</button>
-        </div>
-        <div class="seg" id="from" role="group" aria-label="Point de départ de l'itinéraire" style="margin-top:6px">
-          <button type="button" data-f="gps">Depuis ma position actuelle</button><button type="button" data-f="pt">Depuis mon point de départ</button>
-        </div>
-      </div>
-    </div>
+  </header>
+
+  <section id="competences">
+    <h2>Compétences</h2>
+    <ul class="skills">
+      <li>Python (pandas)</li>
+      <li>SQL</li>
+      <li>Power BI · DAX</li>
+      <li>Nettoyage de données</li>
+      <li>Visualisation</li>
+      <li>MySQL · PHP</li>
+      <li>IA appliquée à l'analyse (Claude)</li>
+    </ul>
   </section>
 
+  <section id="projets">
+    <h2>Projets</h2>
 
-  <section class="alerts" id="alerts" aria-labelledby="ah">
-    <div class="ahead"><span class="lbl">Mes alertes</span><h2 id="ah">Soyez averti des emplois qui vous intéressent</h2>
-      <button class="btn tog" id="aadd" type="button" aria-expanded="false" aria-controls="aform">Créer une alerte</button></div>
-    <div class="amatch" id="amatch" hidden></div>
-    <div class="alist" id="alist"></div>
-    <form class="aform" id="aform" hidden autocomplete="off">
-      <label for="akw" class="lbl">Quel emploi cherchez-vous ?</label>
-      <input id="akw" type="text" placeholder="ex. data analyst, analyste de données" aria-describedby="akwh">
-      <p class="ahelp" id="akwh">Séparez plusieurs mots par des virgules : une offre correspond si elle contient l'un d'eux.</p>
-      <div class="ex" id="aex"></div>
-      <div class="arow">
-        <label for="adom" class="lbl">Domaine</label>
-        <select id="adom"><option value="">Tous les domaines</option></select>
-        <label for="ar" class="lbl">Distance</label>
-        <select id="ar"><option value="2">2 km</option><option value="5" selected>5 km</option><option value="10">10 km</option><option value="0">Toute la ville</option></select>
-      </div>
-      <p class="ahelp" id="aorig"></p>
-      <div class="arow"><button class="btn pri" type="submit">Enregistrer l'alerte</button><button class="btn" type="button" id="acancel">Annuler</button></div>
-    </form>
-    <p class="ahelp">Vos alertes restent sur cet appareil, dans ce navigateur. À chaque visite, les nouvelles offres qui correspondent s'affichent ici. Astuce : ajoutez ce site à l'écran d'accueil de votre téléphone pour l'ouvrir en un geste.</p>
-  </section>
-  <section class="newbox" aria-labelledby="newh">
-    <div class="newhead"><span class="lbl" id="newlbl">Nouveau</span><h2 id="newh">Offres repérées récemment</h2></div>
-    <div class="strip" id="strip"></div>
-    <button class="btn allnew" id="allnew" type="button" hidden></button>
-  </section>
-
-  <div class="main">
-    <div class="col">
-      <div class="filters">
-        <div class="lbl">Domaine</div>
-        <div class="doms" id="doms" role="group" aria-label="Filtrer par domaine"></div>
-        <div class="row2">
-          <input id="s" type="search" placeholder="Rechercher un poste ou un employeur" aria-label="Rechercher un poste ou un employeur">
-          <select id="mode" aria-label="Mode de travail"><option value="">Tous les modes</option><option value="présentiel">Sur place</option><option value="hybride">Hybride</option><option value="télétravail">Télétravail</option></select>
-          <select id="sort" aria-label="Trier"><option value="dist">Plus proches</option><option value="new">Plus récentes</option></select>
+    <article class="project">
+      <img src="projets/accidents-capitale-nationale/images/01_vue_ensemble.png" alt="Tableau de bord Power BI des accidents de la route dans la Capitale-Nationale">
+      <div class="body">
+        <h3>Accidents de la route dans la Capitale-Nationale (2011-2022)</h3>
+        <p class="tags">Python · SQL · Power BI · Données ouvertes de la SAAQ</p>
+        <p>Analyse de 1,7 million de rapports d'accident de la SAAQ pour comprendre quand, dans quelles conditions et pour qui les accidents sont les plus graves dans la région, comparée au reste du Québec.</p>
+        <div class="findings">
+          <div class="finding"><strong>0,95 %</strong><span>d'accidents graves dans la région, contre 1,14 % ailleurs au Québec</span></div>
+          <div class="finding"><strong>× 21</strong><span>un accident avec piéton est 21 fois plus souvent grave</span></div>
+          <div class="finding"><strong>22 %</strong><span>des accidents graves impliquent un piéton, pour 1,3 % des accidents</span></div>
+        </div>
+        <p>Constat inattendu : les accidents sur chaussée enneigée ou glacée sont <em>moins</em> souvent graves que sur chaussée sèche, sans doute parce que les conducteurs ralentissent.</p>
+        <div class="links">
+          <a class="btn primary" href="https://github.com/zomloa/zomloa.github.io/tree/main/projets/accidents-capitale-nationale">Voir le projet</a>
         </div>
       </div>
-      <div class="count"><span id="count" aria-live="polite"></span><button class="maptoggle" id="mt" type="button" aria-controls="mapcard" aria-expanded="false">Voir la carte</button></div>
-      <div class="list" id="list"><div class="empty">Chargement des offres…</div></div>
-      <button class="btn more" id="more" type="button" hidden>Afficher plus d'offres</button>
-    </div>
-    <aside class="mapcard" id="mapcard" data-open="0" aria-label="Carte des offres">
-      <div id="map" role="region" aria-label="Carte interactive : touchez pour choisir votre point de départ"></div>
-      <div class="legend" id="legend"></div>
-    </aside>
-  </div>
+    </article>
 
-  <footer class="foot">
-    <div><h2>Comment ça marche</h2><p>Les offres sont recherchées chaque matin sur Indeed, Jobillico, Jobboom, Guichet-Emplois, Québec emploi et les pages carrières d'employeurs. Les distances sont à vol d'oiseau depuis votre point de départ. Une offre qui n'est plus trouvée trois jours de suite est retirée.</p></div>
-    <div><h2>Avant de postuler</h2><ul><li>Vérifiez toujours l'offre sur le site d'origine : elle a pu être pourvue.</li><li>Un employeur sérieux ne demande jamais d'argent pour un emploi ou une formation.</li><li>Ne donnez votre NAS ou vos informations bancaires qu'après l'embauche.</li></ul></div>
-    <div><h2>À propos</h2><p>Page citoyenne indépendante, sans lien avec la Ville de Québec ni avec les employeurs. Les résumés sont rédigés à partir des offres publiques ; seul le site d'origine fait foi.</p></div>
+    <article class="project">
+      <div class="body">
+        <h3>Emplois proches Québec</h3>
+        <p class="tags">Collecte de données web · Géolocalisation · JavaScript · Automatisation avec l'IA</p>
+        <p>Page citoyenne gratuite qui rassemble des offres d'emploi à Québec, mises à jour automatiquement chaque matin. Chaque offre est géolocalisée : on voit la distance depuis son quartier ou son code postal, et l'itinéraire.</p>
+        <div class="links">
+          <a class="btn primary" href="emplois/">Ouvrir la page</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="parcours">
+    <h2>Parcours</h2>
+    <ul class="timeline">
+      <li>
+        <h3>Administrateur du système de gestion des notes (SIGES)</h3>
+        <p class="when">Université de Dschang, Cameroun · 2016 – 2026</p>
+        <p>Administration d'un système d'information universitaire (notes et dossiers étudiants).</p>
+      </li>
+      <li>
+        <h3>Licence professionnelle en science des données</h3>
+        <p class="when">ESLSCA Rabat · 2024</p>
+      </li>
+      <li>
+        <h3>DUT et ingénieur des travaux en informatique</h3>
+        <p class="when">IUT Fotso Victor · reconnu équivalent à un baccalauréat en informatique (évaluation comparative du MIFI)</p>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>David Mvondo Medjo · Québec · <a href="mailto:mvondodave@gmail.com">mvondodave@gmail.com</a> · <a href="https://github.com/zomloa">github.com/zomloa</a></p>
   </footer>
+
 </div>
-
-<script id="snap" type="application/json">{"offres":[{"id":"aki-sushi-neufchatel-aide-cuisinier-ere-sushis-2425-boul-bastien-metro-plus-quebec","titre":"Aide-cuisinier(ère) – sushis","entreprise":"Aki Sushi Neufchâtel","adresse":"2425, boul. Bastien (Metro Plus), Québec","quartier":"Saint-Émile","latitude":46.857,"longitude":-71.34005,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-12","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50479895","resume":"Préparation de sushis dans un kiosque d'épicerie.","adresse_a_verifier":false},{"id":"canac-commis-d-etage-1177-boul-pie-xi-sud-quebec","titre":"Commis d'étage","entreprise":"Canac","adresse":"1177, boul. Pie-XI Sud, Québec","quartier":"Val-Bélair","latitude":46.8514,"longitude":-71.40497,"domaine":"Commerce et services","mode":"présentiel","date_publication":"2026-09-29","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50391059","resume":"Placement de marchandise, transpalette ; expire le 2 novembre.","adresse_a_verifier":false},{"id":"clinique-du-dos-marc-drolet-massotherapeute-neufchatel-quebec-code-postal-g2c-1b2","titre":"Massothérapeute","entreprise":"Clinique du dos Marc Drolet","adresse":"Neufchâtel, Québec (code postal G2C 1B2)","quartier":"Lebourgneuf","latitude":46.844404,"longitude":-71.323258,"domaine":"Santé et soins","mode":"présentiel","date_publication":"2026-10-15","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50506537","resume":"Massothérapie en clinique ; expire le 5 novembre.","adresse_a_verifier":true},{"id":"cssspnql-analyste-de-donnees-contrat-12-mois-250-place-chef-michel-laveau-bureau-102-wendake","titre":"Analyste de données (contrat 12 mois)","entreprise":"CSSSPNQL","adresse":"250, place Chef-Michel-Laveau, bureau 102, Wendake","quartier":"Saint-Émile","latitude":46.862713,"longitude":-71.356794,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-16","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://cssspnql.com/wp-content/uploads/2026/10/261016_Analyste_donnees_fra.pdf","resume":"Analyse d'enquêtes de population (SPSS/SAS) et rapports ; 50 % télétravail.","adresse_a_verifier":false},{"id":"equilibre-traiteur-cuisinier-ere-parc-industriel-quebec-code-postal-g2c-1x8","titre":"Cuisinier(ère)","entreprise":"Équilibre Traiteur","adresse":"Parc industriel, Québec (code postal G2C 1X8)","quartier":"Duberger","latitude":46.825402,"longitude":-71.313713,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-04","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50421329","resume":"Traiteur, 30 à 40 h, 2 postes.","adresse_a_verifier":true},{"id":"evident-canada-concepteur-logiciel-3415-rue-pierre-ardouin-quebec","titre":"Concepteur logiciel","entreprise":"Evident Canada","adresse":"3415, rue Pierre-Ardouin, Québec","quartier":"Les Saules","latitude":46.811952,"longitude":-71.332213,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-22","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/evident-canada/concepteur-logiciel/17544870","resume":"C++, C#/.NET, Angular ; 0 à 2 ans d'expérience, accessible aux juniors.","adresse_a_verifier":false},{"id":"evident-canada-developpeur-web-fullstack-3415-rue-pierre-ardouin-quebec","titre":"Développeur web fullstack","entreprise":"Evident Canada","adresse":"3415, rue Pierre-Ardouin, Québec","quartier":"Les Saules","latitude":46.811952,"longitude":-71.332213,"domaine":"Informatique et données","mode":"non précisé","date_publication":"2026-10-22","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/evident-canada/developpeur-web-fullstack/17532702","resume":"Développement web fullstack ; adresse tirée de la fiche employeur.","adresse_a_verifier":true},{"id":"familiprix-siege-social-analyste-d-affaires-salesforce-6000-rue-armand-viau-quebec","titre":"Analyste d'affaires Salesforce","entreprise":"Familiprix (siège social)","adresse":"6000, rue Armand-Viau, Québec","quartier":"Neufchâtel","latitude":46.816628,"longitude":-71.342867,"domaine":"Informatique et données","mode":"non précisé","date_publication":"2026-10-15","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/familiprix-siege-social/analyste-d-affaires-salesforce/17619228","resume":"Recueil des besoins, configuration Salesforce, formation et gestion des données.","adresse_a_verifier":false},{"id":"familiprix-siege-social-developpeur-systeme-d-intelligence-d-affaires-bi-6000-rue-armand-viau-quebec","titre":"Développeur, système d'intelligence d'affaires (BI)","entreprise":"Familiprix (siège social)","adresse":"6000, rue Armand-Viau, Québec","quartier":"Neufchâtel","latitude":46.816628,"longitude":-71.342867,"domaine":"Informatique et données","mode":"non précisé","date_publication":"2026-10-05","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/familiprix-siege-social/developpeur-systeme-d-intelligence-d-affaires-bi/17586252","resume":"Rapports, tableaux de bord, modèles de données ; migration SAP Analytics Cloud ; profil expérimenté.","adresse_a_verifier":false},{"id":"familiprix-siege-social-devops-logiciel-d-officine-priorx-6000-rue-armand-viau-quebec","titre":"DevOps (logiciel d'officine Priorx)","entreprise":"Familiprix (siège social)","adresse":"6000, rue Armand-Viau, Québec","quartier":"Neufchâtel","latitude":46.816628,"longitude":-71.342867,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-24","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/familiprix-siege-social/devops-logiciel-d-officine-priorx-/17555805","resume":"CI/CD, Azure, Kubernetes, Terraform ; 2 jours de télétravail.","adresse_a_verifier":false},{"id":"fop-experts-conseils-administrateur-de-bases-de-donnees-int-1220-boul-lebourgneuf-bureau-210-quebec","titre":"Administrateur de bases de données (Int.)","entreprise":"FOP Experts Conseils","adresse":"1220, boul. Lebourgneuf, bureau 210, Québec","quartier":"Lebourgneuf","latitude":46.83626,"longitude":-71.29483,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-30","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/fop-experts-conseils-inc/administrateur-de-bases-de-donnees-int.-/17527188","resume":"DBA intermédiaire en firme-conseil. Travail possible chez le client.","adresse_a_verifier":false},{"id":"fop-experts-conseils-administrateur-de-bases-de-donnees-sr-1220-boul-lebourgneuf-bureau-210-quebec","titre":"Administrateur de bases de données (Sr.)","entreprise":"FOP Experts Conseils","adresse":"1220, boul. Lebourgneuf, bureau 210, Québec","quartier":"Lebourgneuf","latitude":46.83626,"longitude":-71.29483,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-30","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/fop-experts-conseils-inc/administrateur-de-bases-de-donnees-sr.-/17527203","resume":"DBA senior : sécurité, sauvegardes, relève. Travail possible chez le client.","adresse_a_verifier":false},{"id":"fop-experts-conseils-analyste-programmeur-java-int-1220-boul-lebourgneuf-bureau-210-quebec","titre":"Analyste-programmeur Java (Int.)","entreprise":"FOP Experts Conseils","adresse":"1220, boul. Lebourgneuf, bureau 210, Québec","quartier":"Lebourgneuf","latitude":46.83626,"longitude":-71.29483,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-30","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/fop-experts-conseils-inc/analyste-programmeur-java-int.-/17549001","resume":"Applications Java avec les équipes d'affaires. Travail possible chez le client.","adresse_a_verifier":false},{"id":"fop-experts-conseils-analyste-programmeur-net-int-1220-boul-lebourgneuf-bureau-210-quebec","titre":"Analyste-programmeur .Net (Int.)","entreprise":"FOP Experts Conseils","adresse":"1220, boul. Lebourgneuf, bureau 210, Québec","quartier":"Lebourgneuf","latitude":46.83626,"longitude":-71.29483,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-30","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/fop-experts-conseils-inc/analyste-programmeur-.net-int.-/17549082","resume":"Analyse et développement .NET/C# ; 3 à 5 ans. Travail possible chez le client.","adresse_a_verifier":false},{"id":"fop-experts-conseils-analyste-ti-int-1220-boul-lebourgneuf-bureau-210-quebec","titre":"Analyste TI (Int.)","entreprise":"FOP Experts Conseils","adresse":"1220, boul. Lebourgneuf, bureau 210, Québec","quartier":"Lebourgneuf","latitude":46.83626,"longitude":-71.29483,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-30","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/fop-experts-conseils-inc/analyste-ti-int.-/17524692","resume":"Analyse des besoins TI, exigences, essais et soutien. Travail possible chez le client.","adresse_a_verifier":false},{"id":"fop-experts-conseils-pilotes-de-systeme-int-1220-boul-lebourgneuf-bureau-210-quebec","titre":"Pilotes de système (Int.)","entreprise":"FOP Experts Conseils","adresse":"1220, boul. Lebourgneuf, bureau 210, Québec","quartier":"Lebourgneuf","latitude":46.83626,"longitude":-71.29483,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-30","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/fop-experts-conseils-inc/pilotes-de-systeme-int.-/17525649","resume":"Exploitation, DevOps, Dynamics ; profil très expérimenté. Travail possible chez le client.","adresse_a_verifier":false},{"id":"fop-experts-conseils-programmeur-int-1220-boul-lebourgneuf-bureau-210-quebec","titre":"Programmeur (Int.)","entreprise":"FOP Experts Conseils","adresse":"1220, boul. Lebourgneuf, bureau 210, Québec","quartier":"Lebourgneuf","latitude":46.83626,"longitude":-71.29483,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-30","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/fop-experts-conseils-inc/programmeur-int.-/17549466","resume":"Coder, tester, déployer ; 3 à 5 ans. Travail possible chez le client.","adresse_a_verifier":false},{"id":"fromagerie-les-rivieres-caissier-ere-1465-av-chauveau-quebec","titre":"Caissier(ère)","entreprise":"Fromagerie Les Rivières","adresse":"1465, av. Chauveau, Québec","quartier":"Lebourgneuf","latitude":46.85049,"longitude":-71.309186,"domaine":"Commerce et services","mode":"présentiel","date_publication":"2026-10-20","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50543930","resume":"Caisse et service au comptoir de la fromagerie.","adresse_a_verifier":true},{"id":"fromagerie-les-rivieres-emballeur-euse-a-la-machine-1465-av-chauveau-quebec","titre":"Emballeur(euse) à la machine","entreprise":"Fromagerie Les Rivières","adresse":"1465, av. Chauveau, Québec","quartier":"Lebourgneuf","latitude":46.85049,"longitude":-71.309186,"domaine":"Entrepôt, transport et production","mode":"présentiel","date_publication":"2026-10-20","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50543933","resume":"Emballage alimentaire, temps plein, formation payée.","adresse_a_verifier":true},{"id":"groupe-eclair-commis-a-la-reception-entrepot-neufchatel-quebec-code-postal-g2a-2e5","titre":"Commis à la réception (entrepôt)","entreprise":"Groupe Éclair","adresse":"Neufchâtel, Québec (code postal G2A 2E5)","quartier":"Saint-Émile","latitude":46.867593,"longitude":-71.353806,"domaine":"Entrepôt, transport et production","mode":"présentiel","date_publication":"2026-10-20","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50542810","resume":"Réception de marchandise et inventaire, temps plein.","adresse_a_verifier":true},{"id":"groupe-eclair-magasinier-ere-d-atelier-neufchatel-quebec-code-postal-g2a-2e5","titre":"Magasinier(ère) d'atelier","entreprise":"Groupe Éclair","adresse":"Neufchâtel, Québec (code postal G2A 2E5)","quartier":"Saint-Émile","latitude":46.867593,"longitude":-71.353806,"domaine":"Entrepôt, transport et production","mode":"présentiel","date_publication":"2026-10-20","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50542846","resume":"Préparation de matériel de protection incendie, formation offerte.","adresse_a_verifier":true},{"id":"groupe-f-dufresne-analyste-de-donnees-support-sap-junior-455-rue-des-entrepreneurs-quebec","titre":"Analyste de données (support SAP junior)","entreprise":"Groupe F. Dufresne","adresse":"455, rue des Entrepreneurs, Québec","quartier":"Vanier","latitude":46.820981,"longitude":-71.275654,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-23","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/groupe-f-dufresne/analyste-de-donnees/17643303","resume":"Poste junior : qualité des données SAP et soutien aux utilisateurs.","adresse_a_verifier":false},{"id":"harvey-s-serveur-euse-au-comptoir-9080-boul-de-l-ormiere-quebec","titre":"Serveur(euse) au comptoir","entreprise":"Harvey's","adresse":"9080, boul. de l'Ormière, Québec","quartier":"Neufchâtel","latitude":46.832724,"longitude":-71.349444,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-08","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50453105","resume":"Prise de commandes et service en restauration rapide.","adresse_a_verifier":false},{"id":"harvey-s-superviseur-e-restauration-rapide-9080-boul-de-l-ormiere-quebec","titre":"Superviseur(e) – restauration rapide","entreprise":"Harvey's","adresse":"9080, boul. de l'Ormière, Québec","quartier":"Neufchâtel","latitude":46.832724,"longitude":-71.349444,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-08","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50453132","resume":"Supervision de restaurant, temps plein.","adresse_a_verifier":false},{"id":"iddpnql-agent-e-des-ressources-humaines-174-rue-chef-aime-romain-wendake","titre":"Agent(e) des ressources humaines","entreprise":"IDDPNQL","adresse":"174, rue Chef-Aimé-Romain, Wendake","quartier":"Saint-Émile","latitude":46.859158,"longitude":-71.353099,"domaine":"Administration et bureau","mode":"hybride","date_publication":"2026-10-27","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50593384","resume":"Soutien RH, recrutement et accueil ; bilingue ; jusqu'au 15 novembre.","adresse_a_verifier":true},{"id":"iddpnql-charge-e-de-projet-en-gestion-des-matieres-residuelles-174-rue-chef-aime-romain-wendake","titre":"Chargé(e) de projet en gestion des matières résiduelles","entreprise":"IDDPNQL","adresse":"174, rue Chef-Aimé-Romain, Wendake","quartier":"Saint-Émile","latitude":46.859158,"longitude":-71.353099,"domaine":"Administration et bureau","mode":"non précisé","date_publication":null,"premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://career.altee.com/iddpnql/emplois/details/6aa41ce277a75eb79dc083d0","resume":"Projets sur les matières résiduelles pour les communautés.","adresse_a_verifier":true},{"id":"iddpnql-responsable-de-projets-pedagogiques-174-rue-chef-aime-romain-wendake","titre":"Responsable de projets pédagogiques","entreprise":"IDDPNQL","adresse":"174, rue Chef-Aimé-Romain, Wendake","quartier":"Saint-Émile","latitude":46.859158,"longitude":-71.353099,"domaine":"Éducation, loisirs et services publics","mode":"non précisé","date_publication":null,"premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://career.altee.com/iddpnql/emplois/details/6aac318f6a2170260eb2d8a8","resume":"Projets éducatifs en développement durable ; fiche peu détaillée.","adresse_a_verifier":true},{"id":"iga-extra-convivio-aide-de-cuisine-2295-av-chauveau-quebec","titre":"Aide de cuisine","entreprise":"IGA extra Convivio","adresse":"2295, av. Chauveau, Québec","quartier":"Lebourgneuf","latitude":46.842658,"longitude":-71.327168,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-16","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50513535","resume":"Plonge, emballage et préparation de base, temps plein.","adresse_a_verifier":false},{"id":"iga-extra-convivio-commis-fruits-et-legumes-transformes-2295-av-chauveau-quebec","titre":"Commis fruits et légumes transformés","entreprise":"IGA extra Convivio","adresse":"2295, av. Chauveau, Québec","quartier":"Lebourgneuf","latitude":46.842658,"longitude":-71.327168,"domaine":"Commerce et services","mode":"présentiel","date_publication":"2026-10-24","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/iga-extra-convivio.kOllWg/commis-de-fruits-et-legumes-transformes/17642268","resume":"Préparation de fruits et légumes, 25 à 35 h, jour ou soir.","adresse_a_verifier":false},{"id":"iga-extra-convivio-cuisinier-ere-2295-av-chauveau-quebec","titre":"Cuisinier(ère)","entreprise":"IGA extra Convivio","adresse":"2295, av. Chauveau, Québec","quartier":"Lebourgneuf","latitude":46.842658,"longitude":-71.327168,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-02","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50410071","resume":"Cuisine en épicerie, temps plein permanent.","adresse_a_verifier":false},{"id":"le-bangard-cuisinier-ere-de-traiteur-1301-boul-bastien-quebec","titre":"Cuisinier(ère) de traiteur","entreprise":"Le Bangard","adresse":"1301, boul. Bastien, Québec","quartier":"Lebourgneuf","latitude":46.84975,"longitude":-71.30629,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-30","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50615686","resume":"Traiteur, temps plein de jour, buffets et banquets.","adresse_a_verifier":false},{"id":"medpizza-val-belair-cuisinier-ere-de-pizzas-val-belair-quebec-code-postal-g3j-1w7","titre":"Cuisinier(ère) de pizzas","entreprise":"MedPizza Val-Bélair","adresse":"Val-Bélair, Québec (code postal G3J 1W7)","quartier":"Val-Bélair","latitude":46.862995,"longitude":-71.429926,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-29","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50609619","resume":"Pizzas, temps plein, jour ou soir.","adresse_a_verifier":true},{"id":"particulier-allocation-autonomie-a-domicile-prepose-e-aux-soins-a-domicile-neufchatel-quebec-adresse-non-indiquee","titre":"Préposé(e) aux soins à domicile","entreprise":"Particulier (Allocation autonomie à domicile)","adresse":"Neufchâtel, Québec – adresse non indiquée","quartier":"","latitude":null,"longitude":null,"domaine":"Santé et soins","mode":"présentiel","date_publication":"2026-10-13","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50486488","resume":"Aide de soir à domicile, temps partiel.","adresse_a_verifier":true},{"id":"patate-plus-cuisinier-ere-val-belair-quebec-code-postal-g3k-2s8","titre":"Cuisinier(ère)","entreprise":"Patate Plus","adresse":"Val-Bélair, Québec (code postal G3K 2S8)","quartier":"Val-Bélair","latitude":46.8567,"longitude":-71.419908,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-07","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50448392","resume":"Restauration rapide, formation de l'équipe de cuisine.","adresse_a_verifier":true},{"id":"probewell-lab-developpeur-euse-front-end-4500-rue-michelet-quebec","titre":"Développeur(euse) front-end","entreprise":"Probewell Lab","adresse":"4500, rue Michelet, Québec","quartier":"Les Saules","latitude":46.809326,"longitude":-71.330019,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-17","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/probewell-lab-inc/developpeur-euse-front-end/17610195","resume":"React/TypeScript et Node.js ; télétravail mentionné dans les avantages.","adresse_a_verifier":false},{"id":"probewell-lab-developpeur-euse-full-stack-embarque-4500-rue-michelet-quebec","titre":"Développeur(euse) full stack embarqué","entreprise":"Probewell Lab","adresse":"4500, rue Michelet, Québec","quartier":"Les Saules","latitude":46.809326,"longitude":-71.330019,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-17","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/probewell-lab-inc/developpeur-euse-full-stack-embarque/17610591","resume":"C/C++ Linux, microcontrôleurs, Yocto, Python ; télétravail mentionné.","adresse_a_verifier":false},{"id":"proxi-superviseur-e-commerce-de-detail-val-belair-quebec-code-postal-g3k-1l2","titre":"Superviseur(e) – commerce de détail","entreprise":"Proxi","adresse":"Val-Bélair, Québec (code postal G3K 1L2)","quartier":"Val-Bélair","latitude":46.854949,"longitude":-71.410904,"domaine":"Commerce et services","mode":"présentiel","date_publication":"2026-10-19","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50531831","resume":"Supervision du personnel et de l'inventaire ; expire le 2 novembre.","adresse_a_verifier":true},{"id":"salon-darbourg-les-saules-gerant-e-de-salon-de-coiffure-secteur-carrefour-les-saules-code-postal-g1p-4b2","titre":"Gérant(e) de salon de coiffure","entreprise":"Salon Darbourg Les Saules","adresse":"Secteur Carrefour Les Saules (code postal G1P 4B2)","quartier":"Les Saules","latitude":46.819568,"longitude":-71.331292,"domaine":"Commerce et services","mode":"présentiel","date_publication":"2026-10-01","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50405199","resume":"Gestion du salon : personnel, budget, inventaire.","adresse_a_verifier":true},{"id":"service-alimentaire-gordon-camionneur-euse-classe-1-8000-rue-armand-viau-quebec","titre":"Camionneur(euse) classe 1","entreprise":"Service alimentaire Gordon","adresse":"8000, rue Armand-Viau, Québec","quartier":"Neufchâtel","latitude":46.82009,"longitude":-71.351444,"domaine":"Entrepôt, transport et production","mode":"présentiel","date_publication":"2026-10-16","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50513470","resume":"Livraison en semi-remorque réfrigérée, temps plein.","adresse_a_verifier":false},{"id":"tim-hortons-serveur-euse-au-comptoir-val-belair-quebec-code-postal-g3k-1l7","titre":"Serveur(euse) au comptoir","entreprise":"Tim Hortons","adresse":"Val-Bélair, Québec (code postal G3K 1L7)","quartier":"Val-Bélair","latitude":46.859041,"longitude":-71.403826,"domaine":"Restauration et alimentation","mode":"présentiel","date_publication":"2026-10-26","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.guichetemplois.gc.ca/rechercheemplois/offredemploi/50584279","resume":"Service au comptoir, 30 à 40 h.","adresse_a_verifier":true},{"id":"ver-mac-developpeur-logiciel-embarque-1781-rue-bresse-quebec","titre":"Développeur logiciel embarqué","entreprise":"Ver-Mac","adresse":"1781, rue Bresse, Québec","quartier":"Neufchâtel","latitude":46.806665,"longitude":-71.383968,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-10","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://www.jobillico.com/fr/offre-d-emploi/ver-mac/developpeur-logiciel-embarque-/17568072","resume":"C++ et Linux embarqué pour la signalisation routière ; 3 à 5 ans.","adresse_a_verifier":false},{"id":"ville-de-quebec-brigadier-ere-scolaire-remplacant-sur-appel-quebec-traverses-scolaires-non-precisees","titre":"Brigadier(ère) scolaire (remplaçant sur appel)","entreprise":"Ville de Québec","adresse":"Québec – traverses scolaires non précisées","quartier":"","latitude":null,"longitude":null,"domaine":"Éducation, loisirs et services publics","mode":"présentiel","date_publication":"2026-10-26","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://carrieres.jobsmedia.ca/9939/ville-de-quebec/emplois/311889/brigadiere-ou-brigadier-scolaire","resume":"Remplacements sur appel aux traverses, quelques heures par semaine.","adresse_a_verifier":true},{"id":"ville-de-quebec-conseiller-ere-en-systemes-d-information-architecture-de-solution-quebec-lieu-de-travail-non-indique","titre":"Conseiller(ère) en systèmes d'information – architecture de solution","entreprise":"Ville de Québec","adresse":"Québec – lieu de travail non indiqué","quartier":"","latitude":null,"longitude":null,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-26","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://carrieres.jobsmedia.ca/9939/ville-de-quebec/emplois/311880/conseillere-ou-conseiller-en-systemes-dinformation-specialiste-en-architecture-de-solution","resume":"Architecture de solutions TI, poste permanent ; ferme le 8 novembre.","adresse_a_verifier":true},{"id":"ville-de-quebec-conseiller-ere-en-systemes-d-information-radiocommunication-quebec-lieu-de-travail-non-indique","titre":"Conseiller(ère) en systèmes d'information – radiocommunication","entreprise":"Ville de Québec","adresse":"Québec – lieu de travail non indiqué","quartier":"","latitude":null,"longitude":null,"domaine":"Informatique et données","mode":"hybride","date_publication":"2026-10-26","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://carrieres.jobsmedia.ca/9939/ville-de-quebec/emplois/311886/conseillere-ou-conseiller-en-systemes-dinformation-specialiste-radiocommunication","resume":"Gestion du système radio de la Ville ; ferme le 1er novembre.","adresse_a_verifier":true},{"id":"ville-de-quebec-moniteur-trice-de-natation-quebec-piscines-selon-l-arrondissement","titre":"Moniteur(trice) de natation","entreprise":"Ville de Québec","adresse":"Québec – piscines selon l'arrondissement","quartier":"","latitude":null,"longitude":null,"domaine":"Éducation, loisirs et services publics","mode":"présentiel","date_publication":"2026-10-28","premiere_detection":"2026-10-31","derniere_detection":"2026-10-31","absences":0,"statut":"active","url":"https://carrieres.jobsmedia.ca/9939/ville-de-quebec/emplois/312840/monitrice-ou-moniteur-de-natation","resume":"Cours de natation à temps partiel ; brevet requis ; ferme le 22 novembre.","adresse_a_verifier":true}],"meta":{"derniere_maj":"2026-10-31","note":"Premières offres (secteur nord-ouest). La couverture de toute la ville commence avec la prochaine mise à jour."}}</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-<script>
-const $=id=>document.getElementById(id);
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const safeUrl=u=>/^https?:\/\//i.test(u||'')?u:'#';
-const CP={"G1B":[46.92694,-71.20988],"G1C":[46.8809,-71.20496],"G1E":[46.85849,-71.19121],"G1G":[46.87392,-71.28225],"G1H":[46.84932,-71.25548],"G1J":[46.83152,-71.20962],"G1K":[46.81294,-71.23314],"G1L":[46.82973,-71.24345],"G1M":[46.82234,-71.27382],"G1N":[46.80216,-71.27305],"G1P":[46.80874,-71.31199],"G1R":[46.80515,-71.21672],"G1S":[46.79048,-71.24843],"G1T":[46.77251,-71.26065],"G1V":[46.7752,-71.29136],"G1W":[46.75784,-71.2923],"G1X":[46.77278,-71.33635],"G1Y":[46.74861,-71.35631],"G2A":[46.86906,-71.37244],"G2B":[46.83767,-71.36472],"G2C":[46.83111,-71.32576],"G2E":[46.80631,-71.35701],"G2G":[46.78245,-71.42364],"G2J":[46.84083,-71.27937],"G2K":[46.85811,-71.30747],"G2L":[46.90093,-71.26389],"G2M":[46.91874,-71.30984],"G2N":[46.91411,-71.34198],"G3A":[46.75513,-71.49963],"G3E":[46.87369,-71.34036],"G3G":[46.91727,-71.39057],"G3J":[46.84951,-71.46512],"G3K":[46.83056,-71.44176]};
-const QUARTIERS=[["Saint-Roch",46.81634,-71.22359],["Vieux-Québec",46.81218,-71.20649],["Saint-Jean-Baptiste",46.8101,-71.22019],["Montcalm",46.80286,-71.23277],["Saint-Sauveur",46.8069,-71.24404],["Vieux-Limoilou",46.82158,-71.22855],["Lairet",46.83533,-71.24688],["Vanier",46.82014,-71.26083],["Sillery",46.77081,-71.26542],["Sainte-Foy (Cité-Universitaire)",46.78419,-71.28526],["Pointe-de-Sainte-Foy",46.76065,-71.32966],["Cap-Rouge",46.76598,-71.35539],["Duberger",46.80874,-71.31199],["Les Saules",46.8062,-71.31664],["Neufchâtel",46.83284,-71.35145],["Lebourgneuf",46.85082,-71.30874],["Charlesbourg",46.86259,-71.26797],["Beauport",46.85953,-71.19345],["Saint-Émile",46.87369,-71.34036],["Loretteville",46.87124,-71.38544],["Val-Bélair",46.85648,-71.41834],["Lac-Saint-Charles",46.91727,-71.39057]];
-const DOMS=[['Informatique et données','--d-info'],['Commerce et services','--d-comm'],['Restauration et alimentation','--d-resto'],['Entrepôt, transport et production','--d-entre'],
-  ['Santé et soins','--d-sante'],['Éducation, loisirs et services publics','--d-educ'],['Administration et bureau','--d-admin']];
-const domVar=d=>(DOMS.find(x=>x[0]===d)||DOMS[6])[1];
-const tok=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-const SNAP=(()=>{try{return JSON.parse($('snap').textContent||'{}');}catch(e){return {};}})();
-const META=SNAP.meta||{};
-const ALL=(SNAP.offres||[]).filter(o=>o.statut!=='expirée');
-const MAJ=META.derniere_maj||'';
-const TODAY=(()=>{try{return new Date().toLocaleDateString('en-CA',{timeZone:'America/Toronto'});}catch(e){return new Date().toISOString().slice(0,10);}})();
-const daysSince=d=>{if(!d)return 99;return Math.round((Date.parse(TODAY)-Date.parse(d))/864e5);};
-const isNew=o=>daysSince(o.premiere_detection)<=6;
-const isToday=o=>o.premiere_detection===TODAY;
-function hv(a,b,c,d){const p=Math.PI/180,dl=(c-a)*p,dn=(d-b)*p,x=Math.sin(dl/2)**2+Math.cos(a*p)*Math.cos(c*p)*Math.sin(dn/2)**2;return 12742*Math.asin(Math.sqrt(x));}
-const km=d=>d==null?'':(d<1?Math.round(d*1000)+' m':d.toFixed(1).replace('.',',')+' km');
-const dateFr=d=>{if(!d)return '';const t=new Date(d+'T12:00:00');return isNaN(t)?d:t.toLocaleDateString('fr-CA',{day:'numeric',month:'long'});};
-
-/* Préférences du visiteur (dans son navigateur seulement) */
-const LS='emplois-quebec-prefs';
-let P={q:'Saint-Roch',lat:null,lon:null,olabel:'',r:5,doms:[],mode:'',sort:'dist',travel:'transit',from:'gps'};
-try{Object.assign(P,JSON.parse(localStorage.getItem(LS)||'{}'));}catch(e){}
-const save=()=>{try{localStorage.setItem(LS,JSON.stringify(P));}catch(e){}};
-function origin(){if(P.lat!=null)return {lat:P.lat,lon:P.lon,label:P.olabel||'Point choisi sur la carte'};
-  const q=QUARTIERS.find(x=>x[0]===P.q)||QUARTIERS[0];return {lat:q[1],lon:q[2],label:q[0]};}
-
-let VIEW=[],shown=30,sel=null;
-function compute(){
-  const o=origin(),s=$('s').value.trim().toLowerCase();
-  ALL.forEach(x=>{x._d=x.latitude!=null?hv(o.lat,o.lon,x.latitude,x.longitude):null;});
-  VIEW=ALL.filter(x=>{
-    if(P.doms.length&&!P.doms.includes(x.domaine))return false;
-    if(P.mode&&x.mode!==P.mode)return false;
-    if(P.r&&(x._d==null||x._d>P.r))return false;
-    if(s&&!(x.titre+' '+x.entreprise+' '+(x.quartier||'')+' '+(x.resume||'')).toLowerCase().includes(s))return false;
-    return true;});
-  VIEW.sort(P.sort==='new'?(a,b)=>(b.premiere_detection||'').localeCompare(a.premiere_detection||'')||(a._d??99)-(b._d??99)
-                           :(a,b)=>(a._d??99)-(b._d??99)||(b.premiere_detection||'').localeCompare(a.premiere_detection||''));
-}
-function renderStamp(){
-  $('upd').textContent=MAJ?dateFr(MAJ):'pas encore';
-  $('ntot').textContent=ALL.length;$('nnew').textContent=ALL.filter(isNew).length;
-}
-function renderOrigin(){
-  $('q').innerHTML=(P.lat!=null?'<option value="__map">'+esc(P.olabel||'Point choisi sur la carte')+'</option>':'')+QUARTIERS.map(q=>'<option'+(P.lat==null&&q[0]===P.q?' selected':'')+'>'+esc(q[0])+'</option>').join('');
-  if(P.lat!=null)$('q').value='__map';
-  document.querySelectorAll('#radius button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.r===P.r)));
-  document.querySelectorAll('#travel button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.t===P.travel)));
-  document.querySelectorAll('#from button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.f===P.from)));
-}
-function renderDoms(){
-  const o=origin();
-  $('doms').innerHTML=DOMS.map(([d,v])=>{const n=ALL.filter(x=>x.domaine===d&&(!P.r||(x.latitude!=null&&hv(o.lat,o.lon,x.latitude,x.longitude)<=P.r))).length;
-    return '<button type="button" data-d="'+esc(d)+'" aria-pressed="'+P.doms.includes(d)+'"><i style="background:var('+v+')"></i>'+esc(d)+' <span class="n">'+n+'</span></button>';}).join('');
-  $('doms').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const d=b.dataset.d;P.doms=P.doms.includes(d)?P.doms.filter(x=>x!==d):P.doms.concat(d);save();update();}));
-  $('legend').innerHTML=DOMS.map(([d,v])=>'<span><i style="background:var('+v+')"></i>'+esc(d)+'</span>').join('');
-}
-function renderStrip(){
-  const o=origin();
-  let list=ALL.filter(isToday),lbl="Nouveau aujourd'hui",h='Offres repérées ce matin';
-  if(!list.length){list=ALL.filter(isNew);lbl='Nouveau';h='Offres repérées cette semaine';}
-  list=list.map(x=>Object.assign(x,{_d:x.latitude!=null?hv(o.lat,o.lon,x.latitude,x.longitude):null})).sort((a,b)=>(a._d??99)-(b._d??99));const nAll=list.length;list=list.slice(0,6);
-  $('allnew').hidden=nAll<=6;$('allnew').textContent='Voir les '+nAll+' nouvelles offres';
-  $('newlbl').textContent=lbl;$('newh').textContent=h;
-  $('strip').innerHTML=list.length?list.map(x=>'<button type="button" class="ncard" data-id="'+esc(x.id)+'"><span class="dom"><i style="background:var('+domVar(x.domaine)+')"></i>'+esc(x.domaine)+'</span><b>'+esc(x.titre)+'</b><span>'+esc(x.entreprise)+(x.quartier?' · '+esc(x.quartier):'')+'</span>'+(x._d!=null?'<span class="km">'+km(x._d)+' de '+esc(origin().label)+'</span>':'')+'</button>').join('')
-    :'<p class="nempty">Aucune nouvelle offre cette semaine pour l\'instant. Revenez demain matin.</p>';
-  $('strip').querySelectorAll('.ncard').forEach(c=>c.addEventListener('click',()=>focusJob(c.dataset.id)));
-}
-function dest(x){return x.latitude!=null?x.latitude+','+x.longitude:(x.entreprise+' '+(x.adresse||'')+' Québec');}
-function dirUrl(x){const o=origin();return 'https://www.google.com/maps/dir/?api=1'+(P.from==='pt'?'&origin='+o.lat+','+o.lon:'')+'&destination='+encodeURIComponent(dest(x))+'&travelmode='+P.travel;}
-function placeUrl(x){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x.latitude!=null?x.latitude+','+x.longitude:dest(x));}
-const TRV={transit:'en autobus',walking:'à pied',bicycling:'à vélo',driving:'en auto'};
-function renderList(){
-  const n=VIEW.length;
-  $('count').textContent=n+' offre'+(n>1?'s':'')+(P.r?' à moins de '+P.r+' km':' dans la ville')+' · depuis '+origin().label;
-  if(!ALL.length){$('list').innerHTML='<div class="empty">Les offres arrivent avec la première mise à jour du matin.</div>';$('more').hidden=true;return;}
-  if(!n){$('list').innerHTML='<div class="empty">Aucune offre ne correspond. Essayez une distance plus grande ou retirez un filtre de domaine.</div>';$('more').hidden=true;return;}
-  $('list').innerHTML=VIEW.slice(0,shown).map(x=>'<article class="job'+(sel===x.id?' on':'')+'" data-id="'+esc(x.id)+'">'+
-    '<div class="top"><span class="dom"><i style="background:var('+domVar(x.domaine)+')"></i>'+esc(x.domaine)+'</span>'+(isToday(x)?'<span class="badge">Nouveau aujourd\'hui</span>':isNew(x)?'<span class="badge">Nouveau</span>':'')+(typeof ALERTS!=='undefined'&&ALERTS.length&&alertHits(x)?'<span class="hit">Mon alerte</span>':'')+'</div>'+
-    '<h3>'+esc(x.titre)+'</h3><div class="co">'+esc(x.entreprise)+'</div>'+
-    '<div class="meta">'+(x._d!=null?'<span class="km">'+km(x._d)+'</span>':'')+'<span>'+esc(x.quartier||x.adresse||'Lieu à confirmer')+'</span>'+(x.mode?'<span>'+esc(x.mode)+'</span>':'')+(x.date_publication?'<span>Publiée le '+dateFr(x.date_publication)+'</span>':'')+'</div>'+
-    (x.resume?'<p>'+esc(x.resume)+'</p>':'')+(x.adresse_a_verifier?'<span class="warn">Lieu de travail approximatif : vérifiez l\'adresse dans l\'offre.</span>':'')+
-    '<div class="acts"><a class="btn pri" href="'+esc(safeUrl(x.url))+'" target="_blank" rel="noopener">Voir l\'offre</a>'+'<a class="btn" href="'+esc(dirUrl(x))+'" target="_blank" rel="noopener">Itinéraire '+TRV[P.travel]+'</a><a class="btn" href="'+esc(placeUrl(x))+'" target="_blank" rel="noopener">Voir le lieu</a></div></article>').join('');
-  $('more').hidden=n<=shown;
-  $('list').querySelectorAll('.job').forEach(a=>a.addEventListener('click',e=>{if(e.target.closest('a'))return;pick(a.dataset.id);}));
-}
-/* Carte */
-let map=null,layer=null,orgLayer=null,markers={};
-function initMap(){
-  if(typeof L==='undefined'){$('map').innerHTML='<div class="empty" style="height:100%;display:grid;place-items:center">La carte n\'a pas pu se charger. La liste reste complète.</div>';return;}
-  map=L.map('map',{zoomSnap:.25,minZoom:9,maxZoom:18}).setView([46.83,-71.29],11.25);
-  map.attributionControl.setPrefix(false);
-  const t=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'});
-  let ok=false;t.on('tileload',()=>{if(!ok){ok=true;if(window._grid)map.removeLayer(window._grid);if(window._qlbl)map.removeLayer(window._qlbl);}});t.on('tileerror',()=>{if(!ok)t.remove();});t.addTo(map);
-  const lines=[];for(let i=-15;i<=15;i++){const la=46.83+i/110.57,lo=-71.29+i/(111.32*Math.cos(46.83*Math.PI/180));
-    lines.push([[la,-71.29-15/76.1],[la,-71.29+15/76.1]]);lines.push([[46.83-15/110.57,lo],[46.83+15/110.57,lo]]);}
-  if(!ok)window._grid=L.polyline(lines,{color:tok('--grid'),weight:1,interactive:false}).addTo(map);
-  if(!ok)window._qlbl=L.layerGroup(QUARTIERS.map(q=>L.marker([q[1],q[2]],{interactive:false,keyboard:false,icon:L.divIcon({className:'qlbl',html:esc(q[0]),iconSize:[150,14],iconAnchor:[75,7]})}))).addTo(map);
-  layer=L.layerGroup().addTo(map);orgLayer=L.layerGroup().addTo(map);
-  map.on('click',e=>{P.lat=+e.latlng.lat.toFixed(5);P.lon=+e.latlng.lng.toFixed(5);P.olabel='Point choisi sur la carte';save();update();$('cpmsg').textContent='';});
-}
-function drawMap(){
-  if(!map)return;
-  layer.clearLayers();orgLayer.clearLayers();markers={};
-  const o=origin();
-  if(P.r)L.circle([o.lat,o.lon],{radius:P.r*1000,color:tok('--accent'),weight:2,fillColor:tok('--accent'),fillOpacity:.05,interactive:false}).addTo(orgLayer);
-  L.marker([o.lat,o.lon],{interactive:false,keyboard:false,zIndexOffset:2000,icon:L.divIcon({className:'org',html:'<i></i>',iconSize:[24,24],iconAnchor:[12,12]})}).addTo(orgLayer);
-  VIEW.filter(x=>x.latitude!=null).forEach(x=>{
-    const m=L.marker([x.latitude,x.longitude],{title:x.titre+' · '+x.entreprise,icon:L.divIcon({className:'',iconSize:[18,18],iconAnchor:[9,9],
-      html:'<div class="mk'+(sel===x.id?' sel':'')+'" style="width:18px;height:18px;background:'+tok(domVar(x.domaine))+'"></div>'})});
-    m.bindPopup('<div class="pop"><b>'+esc(x.titre)+'</b><span>'+esc(x.entreprise)+' · '+km(x._d)+'</span><a href="'+esc(safeUrl(x.url))+'" target="_blank" rel="noopener">Voir l\'offre</a> · <a href="'+esc(dirUrl(x))+'" target="_blank" rel="noopener">Itinéraire</a></div>');
-    m.on('click',()=>{sel=x.id;const el=document.querySelector('.job[data-id="'+CSS.escape(x.id)+'"]');document.querySelectorAll('.job.on').forEach(j=>j.classList.remove('on'));if(el){el.classList.add('on');}});
-    m.addTo(layer);markers[x.id]=m;});
-  if(P.r)map.flyToBounds(L.latLng(o.lat,o.lon).toBounds(P.r*2000*1.1),{duration:.4});
-}
-function pick(id){sel=id;document.querySelectorAll('.job').forEach(j=>j.classList.toggle('on',j.dataset.id===id));
-  const m=markers[id];if(map&&m){if(window.matchMedia('(max-width:980px)').matches)openMap(true);map.flyTo(m.getLatLng(),Math.max(map.getZoom(),14),{duration:.5});setTimeout(()=>m.openPopup(),550);}}
-function focusJob(id){const i=VIEW.findIndex(x=>x.id===id);
-  if(i<0){P.doms=[];P.r=0;P.mode='';$('s').value='';save();update();}
-  const j=VIEW.findIndex(x=>x.id===id);if(j>=shown){shown=j+10;renderList();}
-  const el=document.querySelector('.job[data-id="'+CSS.escape(id)+'"]');if(el){el.scrollIntoView({behavior:'smooth',block:'center'});}pick(id);}
-function openMap(v){$('mapcard').dataset.open=v?'1':'0';$('mt').setAttribute('aria-expanded',String(v));$('mt').textContent=v?'Masquer la carte':'Voir la carte';if(v&&map)setTimeout(()=>map.invalidateSize(),50);}
-function update(){shown=30;renderOrigin();renderDoms();compute();renderList();renderStrip();drawMap();
-  $('ohint').textContent=P.lat!=null?(P.olabel||'Point choisi sur la carte')+'. Touchez la carte pour préciser, ou choisissez un quartier dans la liste.':'Vous pouvez aussi toucher la carte pour placer votre point de départ exact.';}
-$('q').addEventListener('change',e=>{if(e.target.value==='__map')return;P.q=e.target.value;P.lat=P.lon=null;P.olabel='';save();update();$('cpmsg').textContent='';});
-$('cpf').addEventListener('submit',e=>{e.preventDefault();const v=$('cp').value.toUpperCase().replace(/[^A-Z0-9]/g,'');const k=v.slice(0,3),m=$('cpmsg');
-  if(!/^[A-Z][0-9][A-Z]/.test(k)){m.textContent='Entrez un code postal comme G2B 1G8.';m.classList.add('err');return;}
-  const c=CP[k];if(!c){m.textContent='Ce code postal n\'est pas dans la ville de Québec. Choisissez plutôt un quartier ou touchez la carte.';m.classList.add('err');return;}
-  P.lat=c[0];P.lon=c[1];P.olabel='Secteur '+k;save();update();m.classList.remove('err');
-  m.textContent='Point de départ : centre du secteur '+k+' (précision d\'environ 1 km). Pour plus de précision, touchez votre rue sur la carte.';});
-$('radius').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;P.r=+b.dataset.r;save();update();});
-$('s').addEventListener('input',()=>{shown=30;compute();renderList();drawMap();});
-$('mode').addEventListener('change',e=>{P.mode=e.target.value;save();update();});
-$('sort').addEventListener('change',e=>{P.sort=e.target.value;save();compute();renderList();});
-$('more').addEventListener('click',()=>{shown+=30;renderList();});
-$('travel').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;P.travel=b.dataset.t;save();renderOrigin();renderList();drawMap();});
-$('from').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;P.from=b.dataset.f;save();renderOrigin();renderList();drawMap();});
-$('allnew').addEventListener('click',()=>{P.sort='new';P.r=0;P.doms=[];$('sort').value='new';save();update();document.querySelector('.main').scrollIntoView({behavior:'smooth'});});
-$('mt').addEventListener('click',()=>openMap($('mapcard').dataset.open!=='1'));
-$('mode').value=P.mode;$('sort').value=P.sort;
-
-/* ===== Mes alertes (stockées dans ce navigateur) ===== */
-const AK='emplois-quebec-alertes',VK='emplois-quebec-vu';
-const fold=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
-let ALERTS=[];try{ALERTS=JSON.parse(localStorage.getItem(AK)||'[]');}catch(e){}
-let LASTSEEN='';try{LASTSEEN=localStorage.getItem(VK)||'';}catch(e){}
-const saveAlerts=()=>{try{localStorage.setItem(AK,JSON.stringify(ALERTS));}catch(e){}};
-function matches(a,x){
-  if(a.dom&&x.domaine!==a.dom)return false;
-  if(a.r){if(x.latitude==null)return false;if(hv(a.lat,a.lon,x.latitude,x.longitude)>a.r)return false;}
-  const t=fold(x.titre+' '+(x.resume||'')+' '+x.entreprise);
-  return a.kw.length===0||a.kw.some(k=>t.includes(fold(k)));
-}
-const alertHits=x=>ALERTS.some(a=>matches(a,x));
-const isFresh=x=>!LASTSEEN||(x.premiere_detection||'')>LASTSEEN;
-function renderAlerts(){
-  $('alist').innerHTML=ALERTS.map((a,i)=>{const all=ALL.filter(x=>matches(a,x)),nw=all.filter(isFresh).length;
-    return '<div class="aitem"><div><b>'+esc(a.kw.join(', ')||'Toutes les offres')+'</b><br><span>'+esc(a.dom||'Tous les domaines')+' · '+(a.r?'moins de '+a.r+' km de '+esc(a.label):'toute la ville')+'</span><br>'+
-      '<span class="cnt">'+all.length+' offre'+(all.length>1?'s':'')+' en cours'+(nw?' · '+nw+' nouvelle'+(nw>1?'s':''):'')+'</span></div>'+
-      '<button type="button" class="del" data-i="'+i+'" aria-label="Supprimer l\'alerte '+esc(a.kw.join(', '))+'">Supprimer</button></div>';}).join('');
-  $('alist').querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{ALERTS.splice(+b.dataset.i,1);saveAlerts();renderAlerts();renderList();}));
-  const hits=ALL.filter(x=>alertHits(x)&&isFresh(x));
-  if(!ALERTS.length){$('amatch').hidden=true;$('aadd').textContent='Créer une alerte';return;}
-  $('aadd').textContent='Ajouter une alerte';
-  $('amatch').hidden=false;
-  $('amatch').innerHTML=hits.length
-    ?'<div class="bar"><b>'+hits.length+' nouvelle'+(hits.length>1?'s':'')+' offre'+(hits.length>1?'s':'')+' pour vos alertes</b><span>'+(LASTSEEN?'depuis votre visite du '+dateFr(LASTSEEN):'')+'</span><button class="btn" type="button" id="aseen">Marquer comme vues</button></div>'+
-      hits.slice(0,8).map(x=>'<button type="button" class="ncard" data-id="'+esc(x.id)+'" style="text-align:left"><span class="dom"><i style="background:var('+domVar(x.domaine)+')"></i>'+esc(x.domaine)+'</span><b>'+esc(x.titre)+'</b><span>'+esc(x.entreprise)+(x.quartier?' · '+esc(x.quartier):'')+'</span></button>').join('')
-    :'<div class="bar"><span>Aucune nouvelle offre pour vos alertes depuis votre dernière visite. La liste est mise à jour chaque matin.</span></div>';
-  $('amatch').querySelectorAll('.ncard').forEach(c=>c.addEventListener('click',()=>focusJob(c.dataset.id)));
-  const s=$('aseen');if(s)s.addEventListener('click',()=>{const m=ALL.reduce((v,x)=>(x.premiere_detection||'')>v?x.premiere_detection:v,LASTSEEN);LASTSEEN=m;try{localStorage.setItem(VK,m);}catch(e){}renderAlerts();});
-}
-function openAlertForm(v){$('aform').hidden=!v;$('aadd').setAttribute('aria-expanded',String(v));
-  if(v){const o=origin();$('aorig').textContent='La distance sera calculée depuis : '+o.label+'. Changez votre point de départ plus haut si besoin.';$('akw').focus();}}
-$('adom').innerHTML+=DOMS.map(d=>'<option>'+esc(d[0])+'</option>').join('');
-$('aex').innerHTML=['data analyst','analyste de données','technicien informatique','caissier','préposé','cuisinier','commis','chauffeur'].map(k=>'<button type="button">'+esc(k)+'</button>').join('');
-$('aex').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const v=$('akw').value.trim();$('akw').value=v?(v.replace(/,\s*$/,'')+', '+b.textContent):b.textContent;$('akw').focus();}));
-$('aadd').addEventListener('click',()=>openAlertForm($('aform').hidden));
-$('acancel').addEventListener('click',()=>openAlertForm(false));
-$('aform').addEventListener('submit',e=>{e.preventDefault();const o=origin();
-  const kw=$('akw').value.split(',').map(s=>s.trim()).filter(Boolean);
-  ALERTS.push({kw,dom:$('adom').value,r:+$('ar').value,lat:o.lat,lon:o.lon,label:o.label});saveAlerts();
-  $('akw').value='';openAlertForm(false);renderAlerts();renderList();$('alerts').scrollIntoView({behavior:'smooth',block:'start'});});
-renderStamp();initMap();update();renderAlerts();
-
-</script>
-</body></html>
+</body>
+</html>
