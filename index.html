@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>David Mvondo Medjo, analyste de données à Québec</title>
 <meta name="description" content="Portfolio de David Mvondo Medjo, analyste de données à Québec : projets en Python, SQL et Power BI, et usage efficace de l'IA Claude.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zomloa.github.io/">
+<meta property="og:title" content="David Mvondo Medjo, analyste de données à Québec">
+<meta property="og:description" content="Python, SQL et Power BI, avec l'IA à chaque étape de l'analyse. Projet phare : 1,7 million d'accidents de la route analysés dans la Capitale-Nationale.">
+<meta property="og:image" content="https://zomloa.github.io/assets/apercu.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,21 +100,46 @@
   section { padding: 64px 0; border-top: 1px solid var(--rule); }
 
   /* Projets */
-  .featured { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: start; margin-bottom: 56px; }
   .shot { display: block; }
-  .featured .shot { border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface); }
   .tools { color: var(--slate); font-size: .95rem; margin: 8px 0 16px; }
-  .keyfacts { list-style: none; padding: 0; margin: 0 0 22px; }
-  .keyfacts li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
-  .keyfacts li:first-child { border-top: 1px solid var(--rule); }
-  .keyfacts strong { font-family: var(--display); font-size: 1.2rem; color: var(--blue); margin-right: 6px; }
+  .case-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; margin-bottom: 32px; }
+  .case-head h3 { font-size: 1.6rem; }
+  .case-head p { max-width: 36em; }
+  .stats { display: grid; gap: 0; margin: 0; }
+  .stats div { padding: 12px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 5.2em 1fr; gap: 14px; align-items: baseline; }
+  .stats div:last-child { border-bottom: 1px solid var(--rule); }
+  .stats dt { font-family: var(--display); font-weight: 700; font-size: 1.45rem; color: var(--blue); }
+  .stats dd { margin: 0; font-size: .98rem; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0 0 12px; padding: 0; list-style: none; }
+  .thumb { all: unset; cursor: zoom-in; display: block; width: 100%; }
+  .thumb .frame { display: block; position: relative; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: #fff; aspect-ratio: 16 / 9; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+  .thumb .zoom { display: grid; position: absolute; right: 10px; bottom: 10px; width: 34px; height: 34px; border-radius: 50%;
+                 background: var(--ink); color: var(--paper); display: grid; place-items: center; opacity: .85; }
+  .thumb .zoom .ico { width: 17px; height: 17px; }
+  .thumb .cap { display: block; margin-top: 8px; font-weight: 700; font-size: .98rem; }
+  .thumb .cap span { display: block; font-weight: 400; color: var(--slate); font-size: .92rem; }
+  .thumb:focus-visible .frame { outline: 3px solid var(--amber); outline-offset: 3px; }
+  .case-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 0; }
 
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-  .project .shot { background: #fff; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; aspect-ratio: 16 / 10; margin-bottom: 18px; }
-  .project .shot img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
-  .project p { font-size: 1rem; }
-  .project .result { font-size: .98rem; border-left: 3px solid var(--blue); padding-left: 12px; }
-  .project a.more { font-weight: 700; }
+  .method-title { font-size: 1.25rem; margin: 48px 0 6px; }
+  .method-lead { color: var(--slate); margin-bottom: 22px; max-width: 46em; }
+  .method { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
+  .method li { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px; position: relative; counter-increment: step; }
+  .method li::after { content: counter(step); position: absolute; top: 16px; right: 18px; font-family: var(--display);
+                      font-weight: 700; font-size: 1.6rem; color: var(--rule); }
+  .method .tile { margin-bottom: 14px; }
+  .method h4 { font-family: var(--display); font-size: 1.1rem; margin: 0 0 2px; }
+  .method .tool { color: var(--blue); font-weight: 700; font-size: .9rem; margin: 0 0 8px; }
+  .method p { font-size: .96rem; margin: 0 0 10px; }
+  .method .ai { font-size: .92rem; color: var(--slate); border-top: 1px dashed var(--rule); padding-top: 10px; margin: 0; display: flex; gap: 8px; }
+  .method .ai .ico { width: 16px; height: 16px; color: var(--amber); flex: none; margin-top: 3px; }
+
+  .lightbox { border: 0; padding: 0; background: transparent; max-width: min(1200px, 94vw); }
+  .lightbox::backdrop { background: rgba(10, 16, 24, .82); }
+  .lightbox img { border-radius: 8px; background: #fff; max-height: 82vh; width: auto; margin: 0 auto; }
+  .lightbox .bar-top { display: flex; justify-content: space-between; align-items: center; color: #fff; margin-bottom: 10px; gap: 16px; }
+  .lightbox button { font: 700 .95rem var(--body); background: #fff; color: #172231; border: 0; border-radius: 6px; padding: 8px 14px; cursor: pointer; }
 
   .civic { margin-top: 56px; background: var(--blue-soft); border-radius: 8px; padding: 28px 32px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
   .civic p { margin: 6px 0 0; max-width: 46em; }
@@ -150,7 +184,9 @@
   footer { border-top: 1px solid var(--rule); padding: 24px 0 40px; color: var(--slate); font-size: .92rem; }
 
   @media (max-width: 900px) {
-    .hero, .featured, .cv { grid-template-columns: 1fr; gap: 36px; }
+    .hero, .case-head, .cv { grid-template-columns: 1fr; gap: 36px; }
+    .gallery { grid-template-columns: 1fr; }
+    .method { grid-template-columns: 1fr; }
     .grid, .skills { grid-template-columns: 1fr; }
     .cv { gap: 48px; }
     .civic { grid-template-columns: 1fr; }
@@ -158,7 +194,7 @@
     .hero { padding-top: 24px; }
   }
   @media (min-width: 640px) and (max-width: 900px) {
-    .grid, .skills { grid-template-columns: 1fr 1fr; }
+    .skills, .method { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -179,8 +215,7 @@
     <div>
       <h1>David Mvondo Medjo</h1>
       <p class="role">Analyste de données à Québec, qui intègre l’IA à chaque étape de l’analyse</p>
-      <p class="intro">Je transforme des données brutes en constats clairs, avec Python, SQL et Power BI. Pendant dix ans, j'ai administré le système de gestion des notes d'une université : j'en ai gardé le goût de la rigueur et le réflexe de vérifier chaque chiffre avant de le présenter.</p>
-      <p class="intro">J'utilise aussi Claude, l'IA d'Anthropic, comme un véritable assistant d'analyse : il m'aide à explorer les données, à écrire et déboguer le code, à automatiser les tâches répétitives et à rédiger les rapports. Je garde la main sur les décisions, et chaque résultat est vérifié avant d'être présenté.</p>
+      <p class="intro">Je transforme des données brutes en constats clairs avec Python, SQL et Power BI, en m'appuyant sur l'IA pour aller plus vite sans rien céder sur la rigueur. Dix ans à administrer le système de notes d'une université m'ont donné un réflexe : vérifier chaque chiffre avant de le présenter.</p>
       <div class="actions">
         <a class="btn primary" href="#projets">Voir mes projets</a>
         <a class="btn" href="https://www.linkedin.com/in/dave-mvondo-403713239/">LinkedIn</a>
@@ -205,21 +240,70 @@
   <section id="projets">
     <h2>Projets</h2>
 
-    <article class="featured">
-      <a class="shot" href="https://github.com/zomloa/accidents-capitale-nationale">
-        <img src="assets/accidents_tableau_de_bord.png" alt="Tableau de bord Power BI : nombre d'accidents par année et part des accidents graves, Capitale-Nationale et reste du Québec">
-      </a>
-      <div>
-        <h3>Accidents de la route dans la Capitale-Nationale, 2011 à 2022</h3>
-        <p class="tools">Python (pandas), SQL, Power BI, données ouvertes de la SAAQ</p>
-        <p>Quand, dans quelles conditions et pour qui les accidents sont-ils les plus graves ? J'ai nettoyé et réuni 12 années de rapports, répondu à cinq questions en SQL, puis construit un tableau de bord de trois pages.</p>
-        <ul class="keyfacts">
-          <li><strong>0,95 %</strong> d'accidents graves dans la région, contre 1,14 % dans le reste du Québec</li>
-          <li><strong>22 %</strong> des accidents graves impliquent un piéton, pour 1,3 % de l'ensemble des accidents</li>
-          <li><strong>0,37 %</strong> seulement d'accidents graves sur chaussée enneigée, contre 1,24 % sur chaussée sèche</li>
-        </ul>
-        <a class="btn primary" href="https://github.com/zomloa/accidents-capitale-nationale">Voir le projet</a>
+    <article class="case">
+      <div class="case-head">
+        <div>
+          <h3>Accidents de la route dans la Capitale-Nationale, 2011 à 2022</h3>
+          <p class="tools">Python (pandas), SQL, Power BI, données ouvertes de la SAAQ</p>
+          <p>Quand, dans quelles conditions et pour qui les accidents sont-ils les plus graves ? J'ai réuni et nettoyé 12 années de rapports, répondu à cinq questions d'affaires en SQL, puis construit un tableau de bord de trois pages.</p>
+          <div class="case-actions">
+            <a class="btn primary" href="https://github.com/zomloa/accidents-capitale-nationale">Voir le projet sur GitHub</a>
+          </div>
+        </div>
+        <dl class="stats">
+          <div><dt>0,95 %</dt><dd>d'accidents graves dans la région, contre 1,14 % dans le reste du Québec</dd></div>
+          <div><dt>22 %</dt><dd>des accidents graves impliquent un piéton, pour 1,3 % de l'ensemble des accidents</dd></div>
+          <div><dt>0,37 %</dt><dd>d'accidents graves sur chaussée enneigée, contre 1,24 % sur chaussée sèche</dd></div>
+        </dl>
       </div>
+
+      <ul class="gallery" aria-label="Pages du tableau de bord Power BI">
+        <li><button class="thumb" type="button" data-src="assets/accidents_tableau_de_bord.png" data-title="Vue d'ensemble" aria-label="Agrandir : Vue d'ensemble">
+          <span class="frame"><img src="assets/accidents_tableau_de_bord.png" alt="Page Vue d'ensemble du tableau de bord : nombre d'accidents par année et part des accidents graves" loading="lazy"><span class="zoom"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span></span>
+          <span class="cap">Vue d'ensemble<span>Évolution et comparaison avec le Québec</span></span>
+        </button></li>
+        <li><button class="thumb" type="button" data-src="assets/accidents_conditions.png" data-title="Conditions à risque" aria-label="Agrandir : Conditions à risque">
+          <span class="frame"><img src="assets/accidents_conditions.png" alt="Page Conditions à risque : part des accidents graves selon l'état de la chaussée et la tranche horaire" loading="lazy"><span class="zoom"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span></span>
+          <span class="cap">Conditions à risque<span>État de la chaussée et heure</span></span>
+        </button></li>
+        <li><button class="thumb" type="button" data-src="assets/accidents_usagers.png" data-title="Usagers vulnérables" aria-label="Agrandir : Usagers vulnérables">
+          <span class="frame"><img src="assets/accidents_usagers.png" alt="Page Usagers vulnérables : accidents impliquant des piétons et des vélos" loading="lazy"><span class="zoom"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span></span>
+          <span class="cap">Usagers vulnérables<span>Piétons et cyclistes</span></span>
+        </button></li>
+      </ul>
+
+      <h3 class="method-title">Ma démarche, et la place de l'IA</h3>
+      <p class="method-lead">J'ai écrit le code moi-même, étape par étape. Claude m'a servi d'assistant tout au long du projet, et chaque chiffre a été vérifié avant d'être publié.</p>
+      <ol class="method">
+        <li>
+          <span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></span>
+          <h4>Préparer</h4>
+          <p class="tool">Python, pandas</p>
+          <p>12 fichiers réunis et 1,7 million de lignes nettoyées : en-têtes corrigés, codes traduits, anomalies documentées.</p>
+          <p class="ai"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg><span>A lu la documentation de la SAAQ avec moi et m'a aidé à repérer les pièges cachés dans les données.</span></p>
+        </li>
+        <li>
+          <span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></span>
+          <h4>Interroger</h4>
+          <p class="tool">SQL</p>
+          <p>Une base SQLite et dix requêtes commentées pour répondre aux cinq questions d'affaires.</p>
+          <p class="ai"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg><span>A relu mes requêtes et m'a expliqué mes erreurs, comme un collègue expérimenté.</span></p>
+        </li>
+        <li>
+          <span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-3"/></svg></span>
+          <h4>Visualiser</h4>
+          <p class="tool">Power BI, DAX</p>
+          <p>Un tableau de bord de trois pages, des mesures DAX et un filtre par territoire.</p>
+          <p class="ai"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg><span>A proposé une mise en page plus lisible et des titres compréhensibles par un gestionnaire.</span></p>
+        </li>
+        <li>
+          <span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h4>Valider</h4>
+          <p class="tool">Python, SQL et Power BI</p>
+          <p>Chaque chiffre clé recalculé de façon indépendante dans les trois outils, avec des résultats identiques.</p>
+          <p class="ai"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg><span>L'IA accélère le travail ; la vérification reste la mienne.</span></p>
+        </li>
+      </ol>
     </article>
 
     <aside class="civic">
@@ -365,5 +449,27 @@
 <footer>
   <div class="wrap">David Mvondo Medjo, Québec. Projets et code disponibles sur GitHub.</div>
 </footer>
+<dialog class="lightbox" id="lightbox" aria-label="Image agrandie">
+  <div class="bar-top"><strong id="lightbox-title"></strong><button type="button" id="lightbox-close">Fermer</button></div>
+  <img id="lightbox-img" src="" alt="">
+</dialog>
+<script>
+  (function () {
+    var box = document.getElementById('lightbox');
+    if (!box || typeof box.showModal !== 'function') return;
+    var img = document.getElementById('lightbox-img');
+    var title = document.getElementById('lightbox-title');
+    document.querySelectorAll('.thumb').forEach(function (t) {
+      t.addEventListener('click', function () {
+        img.src = t.dataset.src;
+        img.alt = t.querySelector('img').alt;
+        title.textContent = t.dataset.title;
+        box.showModal();
+      });
+    });
+    document.getElementById('lightbox-close').addEventListener('click', function () { box.close(); });
+    box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+  })();
+</script>
 </body>
 </html>
