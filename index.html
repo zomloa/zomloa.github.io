@@ -3,145 +3,348 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>David Mvondo Medjo – Analyste de données</title>
-<meta name="description" content="Portfolio de David Mvondo Medjo, analyste de données junior à Québec : Python, SQL, Power BI.">
+<title>David Mvondo Medjo, analyste de données à Québec</title>
+<meta name="description" content="Portfolio de David Mvondo Medjo, analyste de données à Québec : projets en Python, SQL, R et Power BI.">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f7f8fa; --surface: #ffffff; --text: #1b1f24; --muted: #5b6573;
-    --accent: #1565c0; --accent-soft: #e7f0fb; --border: #e3e6ea;
+    --paper: #f4f6f8;
+    --surface: #ffffff;
+    --ink: #172231;
+    --slate: #566374;
+    --rule: #d6dce3;
+    --blue: #0b4da2;
+    --blue-soft: #e3ecf8;
+    --amber: #d99a00;
+    --display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+    --body: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #12151a; --surface: #1b2027; --text: #e8ebef; --muted: #a2acb8;
-      --accent: #6aa7ef; --accent-soft: #1f2d3f; --border: #2b323b;
+      --paper: #0f1620;
+      --surface: #16202c;
+      --ink: #e6ebf1;
+      --slate: #9aa7b6;
+      --rule: #2a3544;
+      --blue: #78a9f0;
+      --blue-soft: #1b2b42;
+      --amber: #f0b429;
     }
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-         background: var(--bg); color: var(--text); line-height: 1.6; }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-  header { padding: 72px 0 48px; }
-  .kicker { color: var(--accent); font-weight: 600; margin: 0 0 8px; }
-  h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; margin: 0 0 16px; }
-  .lead { font-size: 1.15rem; color: var(--muted); max-width: 660px; margin: 0 0 28px; }
-  .links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; text-decoration: none;
-         font-weight: 600; font-size: .95rem; border: 1px solid var(--border);
-         color: var(--text); background: var(--surface); }
-  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  section { padding: 40px 0; border-top: 1px solid var(--border); }
-  h2 { font-size: 1.5rem; margin: 0 0 20px; }
-  h3 { font-size: 1.2rem; margin: 0 0 8px; }
-  p { margin: 0 0 14px; }
-  .skills { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
-  .skills li { background: var(--accent-soft); color: var(--accent); padding: 6px 14px;
-               border-radius: 999px; font-weight: 500; font-size: .95rem; }
-  .project { background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-             overflow: hidden; margin-bottom: 28px; }
-  .project img { width: 100%; display: block; border-bottom: 1px solid var(--border); }
-  .project .body { padding: 24px; }
-  .tags { color: var(--muted); font-size: .9rem; margin-bottom: 16px; }
-  .findings { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
-  .finding { background: var(--bg); border-radius: 10px; padding: 14px 16px; }
-  .finding strong { display: block; font-size: 1.5rem; color: var(--accent); line-height: 1.2; }
-  .finding span { color: var(--muted); font-size: .92rem; }
-  .timeline { list-style: none; padding: 0; margin: 0; }
-  .timeline li { padding: 0 0 18px 18px; border-left: 2px solid var(--border); position: relative; }
-  .timeline li::before { content: ""; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px;
-                         border-radius: 50%; background: var(--accent); }
-  .timeline .when { color: var(--muted); font-size: .9rem; }
-  footer { padding: 40px 0 60px; border-top: 1px solid var(--border); color: var(--muted); font-size: .92rem; }
-  a { color: var(--accent); }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.65 var(--body);
+  }
+  a { color: var(--blue); text-underline-offset: 3px; }
+  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3 { font-family: var(--display); color: var(--ink); margin: 0; }
+  h2 { font-size: 1.85rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 28px; }
+  h3 { font-size: 1.3rem; font-weight: 700; line-height: 1.25; }
+  p { margin: 0 0 1em; }
+
+  /* Navigation */
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .nav .who { font-family: var(--display); font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--ink); }
+  .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { color: var(--slate); text-decoration: none; font-size: .98rem; }
+  .nav ul a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: end; padding: 56px 0 72px; }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.025em; margin-bottom: 22px; }
+  .hero .role { font-family: var(--display); font-weight: 500; font-size: 1.35rem; color: var(--slate); margin-bottom: 18px; }
+  .hero .intro { max-width: 38em; margin-bottom: 28px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 6px; font-weight: 700;
+    font-size: .98rem; text-decoration: none; border: 1.5px solid var(--ink); color: var(--ink);
+  }
+  .btn.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #0f1620; } }
+
+  /* La donnée mise en avant */
+  .finding { border-left: 4px solid var(--amber); padding: 6px 0 6px 24px; }
+  .finding .claim { font-family: var(--display); font-weight: 500; font-size: 1.45rem; line-height: 1.3; margin-bottom: 22px; }
+  .bar { margin-bottom: 14px; }
+  .bar .label { display: flex; justify-content: space-between; font-size: .95rem; color: var(--slate); margin-bottom: 4px; }
+  .bar .label strong { color: var(--ink); font-family: var(--display); font-size: 1.15rem; }
+  .bar .track { height: 14px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+  .bar .fill { height: 100%; background: var(--amber); transform-origin: left; animation: grow 1.1s cubic-bezier(.2,.7,.2,1) .3s both; }
+  .bar.base .fill { background: var(--slate); }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: reduce) { .bar .fill { animation: none; } }
+  .finding .source { font-size: .88rem; color: var(--slate); margin: 16px 0 0; }
+
+  section { padding: 64px 0; border-top: 1px solid var(--rule); }
+
+  /* Projets */
+  .featured { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: start; margin-bottom: 56px; }
+  .shot { display: block; }
+  .featured .shot { border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface); }
+  .tools { color: var(--slate); font-size: .95rem; margin: 8px 0 16px; }
+  .keyfacts { list-style: none; padding: 0; margin: 0 0 22px; }
+  .keyfacts li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .keyfacts li:first-child { border-top: 1px solid var(--rule); }
+  .keyfacts strong { font-family: var(--display); font-size: 1.2rem; color: var(--blue); margin-right: 6px; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .project .shot { background: #fff; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; aspect-ratio: 16 / 10; margin-bottom: 18px; }
+  .project .shot img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+  .project p { font-size: 1rem; }
+  .project .result { font-size: .98rem; border-left: 3px solid var(--blue); padding-left: 12px; }
+  .project a.more { font-weight: 700; }
+
+  .civic { margin-top: 56px; background: var(--blue-soft); border-radius: 8px; padding: 28px 32px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+  .civic p { margin: 6px 0 0; max-width: 46em; }
+
+  /* Parcours */
+  .cv { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .cv h3.col { font-size: 1.1rem; color: var(--slate); font-weight: 500; margin-bottom: 18px; }
+  .entry { display: grid; grid-template-columns: 7.5em 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--rule); }
+  .entry .when { color: var(--slate); font-size: .95rem; padding-top: 2px; }
+  .entry h4 { font-family: var(--display); font-size: 1.08rem; margin: 0 0 2px; }
+  .entry .where { color: var(--slate); font-size: .95rem; margin: 0 0 8px; }
+  .entry ul { margin: 0; padding-left: 1.1em; font-size: .98rem; }
+  .entry li { margin-bottom: 4px; }
+  .entry p { font-size: .98rem; margin: 0; }
+
+  /* Compétences */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; margin: 0; }
+  .skills div { padding: 14px 0; border-top: 1px solid var(--rule); }
+  .skills dt { font-family: var(--display); font-weight: 700; margin-bottom: 4px; }
+  .skills dd { margin: 0; color: var(--slate); font-size: .98rem; }
+
+  /* Contact */
+  .contact { padding: 72px 0 88px; }
+  .contact h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); max-width: 18em; margin-bottom: 18px; }
+  .contact p { max-width: 38em; }
+  footer { border-top: 1px solid var(--rule); padding: 24px 0 40px; color: var(--slate); font-size: .92rem; }
+
+  @media (max-width: 900px) {
+    .hero, .featured, .cv { grid-template-columns: 1fr; gap: 36px; }
+    .grid, .skills { grid-template-columns: 1fr; }
+    .civic { grid-template-columns: 1fr; }
+    .entry { grid-template-columns: 1fr; gap: 2px; }
+    .nav ul { display: none; }
+    .hero { padding-top: 24px; }
+  }
+  @media (min-width: 640px) and (max-width: 900px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
-    <p class="kicker">Analyste de données junior · Québec</p>
-    <h1>David Mvondo Medjo</h1>
-    <p class="lead">Je transforme des données brutes en réponses claires, avec Python, SQL et Power BI. Dix ans d'expérience dans l'administration d'un système d'information universitaire, et une formation en science des données.</p>
-    <div class="links">
-      <a class="btn primary" href="#projets">Voir mes projets</a>
-      <a class="btn" href="https://github.com/zomloa">GitHub</a>
-      <a class="btn" href="mailto:mvondodave@gmail.com">Me contacter</a>
-    </div>
-  </header>
-
-  <section id="competences">
-    <h2>Compétences</h2>
-    <ul class="skills">
-      <li>Python (pandas)</li>
-      <li>SQL</li>
-      <li>Power BI · DAX</li>
-      <li>Nettoyage de données</li>
-      <li>Visualisation</li>
-      <li>MySQL · PHP</li>
-      <li>IA appliquée à l'analyse (Claude)</li>
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="who" href="#">David Mvondo Medjo</a>
+    <ul>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </section>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>David Mvondo Medjo</h1>
+      <p class="role">Analyste de données à Québec</p>
+      <p class="intro">Je transforme des données brutes en constats clairs, avec Python, SQL, R et Power BI. Pendant dix ans, j'ai administré le système de gestion des notes d'une université : j'en ai gardé le goût de la rigueur et le réflexe de vérifier chaque chiffre avant de le présenter.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn" href="https://www.linkedin.com/in/dave-mvondo-403713239/">LinkedIn</a>
+        <a class="btn" href="https://github.com/zomloa">GitHub</a>
+      </div>
+    </div>
+
+    <figure class="finding" aria-label="Exemple de résultat d'analyse">
+      <p class="claim">Sur les routes de la Capitale-Nationale, un accident impliquant un piéton est 21 fois plus souvent grave.</p>
+      <div class="bar">
+        <div class="label"><span>Avec un piéton</span><strong>15,9 %</strong></div>
+        <div class="track"><div class="fill" style="width:100%"></div></div>
+      </div>
+      <div class="bar base">
+        <div class="label"><span>Sans piéton</span><strong>0,75 %</strong></div>
+        <div class="track"><div class="fill" style="width:4.7%"></div></div>
+      </div>
+      <figcaption class="source">Part des accidents mortels ou graves, 2011 à 2022. Tiré de mon analyse de 1,7 million de rapports d'accident de la SAAQ.</figcaption>
+    </figure>
+  </header>
 
   <section id="projets">
     <h2>Projets</h2>
 
-    <article class="project">
-      <img src="assets/accidents_tableau_de_bord.png" alt="Tableau de bord Power BI des accidents de la route dans la Capitale-Nationale">
-      <div class="body">
-        <h3>Accidents de la route dans la Capitale-Nationale (2011-2022)</h3>
-        <p class="tags">Python · SQL · Power BI · Données ouvertes de la SAAQ</p>
-        <p>Analyse de 1,7 million de rapports d'accident de la SAAQ pour comprendre quand, dans quelles conditions et pour qui les accidents sont les plus graves dans la région, comparée au reste du Québec.</p>
-        <div class="findings">
-          <div class="finding"><strong>0,95 %</strong><span>d'accidents graves dans la région, contre 1,14 % ailleurs au Québec</span></div>
-          <div class="finding"><strong>× 21</strong><span>un accident avec piéton est 21 fois plus souvent grave</span></div>
-          <div class="finding"><strong>22 %</strong><span>des accidents graves impliquent un piéton, pour 1,3 % des accidents</span></div>
-        </div>
-        <p>Constat inattendu : les accidents sur chaussée enneigée ou glacée sont <em>moins</em> souvent graves que sur chaussée sèche, sans doute parce que les conducteurs ralentissent.</p>
-        <div class="links">
-          <a class="btn primary" href="https://github.com/zomloa/accidents-capitale-nationale">Voir le projet</a>
-        </div>
+    <article class="featured">
+      <a class="shot" href="https://github.com/zomloa/accidents-capitale-nationale">
+        <img src="assets/accidents_tableau_de_bord.png" alt="Tableau de bord Power BI : nombre d'accidents par année et part des accidents graves, Capitale-Nationale et reste du Québec">
+      </a>
+      <div>
+        <h3>Accidents de la route dans la Capitale-Nationale, 2011 à 2022</h3>
+        <p class="tools">Python (pandas), SQL, Power BI, données ouvertes de la SAAQ</p>
+        <p>Quand, dans quelles conditions et pour qui les accidents sont-ils les plus graves ? J'ai nettoyé et réuni 12 années de rapports, répondu à cinq questions en SQL, puis construit un tableau de bord de trois pages.</p>
+        <ul class="keyfacts">
+          <li><strong>0,95 %</strong> d'accidents graves dans la région, contre 1,14 % dans le reste du Québec</li>
+          <li><strong>22 %</strong> des accidents graves impliquent un piéton, pour 1,3 % de l'ensemble des accidents</li>
+          <li><strong>0,37 %</strong> seulement d'accidents graves sur chaussée enneigée, contre 1,24 % sur chaussée sèche</li>
+        </ul>
+        <a class="btn primary" href="https://github.com/zomloa/accidents-capitale-nationale">Voir le projet</a>
       </div>
     </article>
 
-    <article class="project">
-      <div class="body">
+    <div class="grid">
+      <article class="project">
+        <a class="shot" href="https://github.com/zomloa/SQL---Analyse-RH-DataLendo"><img src="assets/rh_turnover.png" alt="Graphique du taux de roulement par département" loading="lazy"></a>
+        <h3>Ressources humaines : effectifs et roulement du personnel</h3>
+        <p class="tools">SQL (SQLite, fonctions de fenêtre), Python, Excel</p>
+        <p>Étude de cas : 15 questions d'un gestionnaire RH sur 1 500 employés, traitées en SQL, avec une synthèse et des recommandations.</p>
+        <p class="result">Roulement de 11,4 % sur 12 mois. Les écarts entre départements ne sont pas statistiquement significatifs.</p>
+        <a class="more" href="https://github.com/zomloa/SQL---Analyse-RH-DataLendo">Voir le projet</a>
+      </article>
+
+      <article class="project">
+        <a class="shot" href="https://github.com/zomloa/projet-sante-cameroun"><img src="assets/sante_ruptures.png" alt="Graphique des ruptures de médicaments par région du Cameroun" loading="lazy"></a>
+        <h3>Consultations de santé au Cameroun, 2025</h3>
+        <p class="tools">R (tidyverse), tests statistiques, Shiny, R Markdown</p>
+        <p>Étude de cas complète : nettoyage, tests d'hypothèses, rapport de recommandations et tableau de bord interactif à sept onglets.</p>
+        <p class="result">Environ 18 % des consultations subissent une rupture de médicaments. L'écart est significatif entre districts, pas entre régions.</p>
+        <a class="more" href="https://github.com/zomloa/projet-sante-cameroun">Voir le projet</a>
+      </article>
+
+      <article class="project">
+        <a class="shot" href="https://github.com/zomloa/afrimarketproject"><img src="assets/afrimarket_categories.png" alt="Graphiques du chiffre d'affaires, du taux de retour et de la rentabilité par catégorie" loading="lazy"></a>
+        <h3>Ventes et rentabilité d'un commerce en ligne</h3>
+        <p class="tools">Python (pandas), Streamlit, présentation à la direction</p>
+        <p>Étude de cas : nettoyage, indicateurs de rentabilité, tableau de bord Streamlit, rapport et présentation de 16 diapositives.</p>
+        <p class="result">L'électronique fait 71 % du chiffre d'affaires mais a le taux de retour le plus élevé ; la maison est la catégorie la plus rentable.</p>
+        <a class="more" href="https://github.com/zomloa/afrimarketproject">Voir le projet</a>
+      </article>
+    </div>
+
+    <aside class="civic">
+      <div>
         <h3>Emplois proches Québec</h3>
-        <p class="tags">Collecte de données web · Géolocalisation · JavaScript · Automatisation avec l'IA</p>
-        <p>Page citoyenne gratuite qui rassemble des offres d'emploi à Québec, mises à jour automatiquement chaque matin. Chaque offre est géolocalisée : on voit la distance depuis son quartier ou son code postal, et l'itinéraire.</p>
-        <div class="links">
-          <a class="btn primary" href="emplois/">Ouvrir la page</a>
-        </div>
+        <p>Une page citoyenne gratuite qui rassemble chaque matin des offres d'emploi à Québec, avec la distance depuis votre quartier et l'itinéraire. Collecte, géolocalisation et mise à jour automatisées avec l'IA.</p>
       </div>
-    </article>
+      <a class="btn" href="emplois/">Ouvrir la page</a>
+    </aside>
   </section>
 
   <section id="parcours">
     <h2>Parcours</h2>
-    <ul class="timeline">
-      <li>
-        <h3>Administrateur du système de gestion des notes (SIGES)</h3>
-        <p class="when">Université de Dschang, Cameroun · 2016 – 2026</p>
-        <p>Administration d'un système d'information universitaire (notes et dossiers étudiants).</p>
-      </li>
-      <li>
-        <h3>Licence professionnelle en science des données</h3>
-        <p class="when">ESLSCA Rabat · 2024</p>
-      </li>
-      <li>
-        <h3>DUT et ingénieur des travaux en informatique</h3>
-        <p class="when">IUT Fotso Victor · reconnu équivalent à un baccalauréat en informatique (évaluation comparative du MIFI)</p>
-      </li>
-    </ul>
+    <div class="cv">
+      <div>
+        <h3 class="col">Expérience</h3>
+        <div class="entry">
+          <div class="when">2016 – 2026</div>
+          <div>
+            <h4>Administrateur du système de gestion des notes (SIGES)</h4>
+            <p class="where">Université de Dschang, Cameroun</p>
+            <ul>
+              <li>Gestion du système d'information : inscriptions des étudiants et traitement des notes</li>
+              <li>Mise en place d'une plateforme d'enseignement en ligne pour une faculté</li>
+              <li>Membre des équipes de développement d'un système de gestion des concours et d'un système de distribution d'ordinateurs aux étudiants</li>
+              <li>Maintenance informatique et soutien technique aux cours et soutenances en visioconférence</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2023</div>
+          <div>
+            <h4>Formateur en HTML5 et CSS3</h4>
+            <p class="where">Cameroon Debate Association, Dschang</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2014 – 2015</div>
+          <div>
+            <h4>Enseignant d'informatique</h4>
+            <p class="where">Lycée de Kassap, Bayangam</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2014</div>
+          <div>
+            <h4>Stagiaire</h4>
+            <p class="where">Cameroon Telecommunications, Yaoundé</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="col">Formation</h3>
+        <div class="entry">
+          <div class="when">2024</div>
+          <div>
+            <h4>Licence professionnelle en science des données</h4>
+            <p class="where">ESLSCA, Rabat (Maroc)</p>
+            <p>Science des données pour la gestion des informations des entreprises</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2015</div>
+          <div>
+            <h4>Ingénieur des travaux en informatique</h4>
+            <p class="where">IUT Fotso Victor, Bandjoun</p>
+            <p>Conception et développement d'applications Internet et réseaux</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2014</div>
+          <div>
+            <h4>DUT en informatique</h4>
+            <p class="where">IUT Fotso Victor, Bandjoun</p>
+            <p>Informatique, services et réseaux</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">Québec</div>
+          <div>
+            <h4>Équivalence reconnue</h4>
+            <p>Évaluation comparative du ministère de l'Immigration (MIFI) : équivalent d'un baccalauréat en informatique</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>David Mvondo Medjo · Québec · <a href="mailto:mvondodave@gmail.com">mvondodave@gmail.com</a> · <a href="https://github.com/zomloa">github.com/zomloa</a></p>
-  </footer>
+  <section id="competences">
+    <h2>Compétences</h2>
+    <dl class="skills">
+      <div><dt>Analyse</dt><dd>Nettoyage et préparation des données, analyse exploratoire, indicateurs, tests statistiques</dd></div>
+      <div><dt>Langages</dt><dd>Python (pandas), SQL, R (tidyverse)</dd></div>
+      <div><dt>Visualisation</dt><dd>Power BI et DAX, Shiny, Streamlit, Excel, Google Sheets</dd></div>
+      <div><dt>Bases de données</dt><dd>SQLite, MySQL, MongoDB, HeidiSQL</dd></div>
+      <div><dt>Intelligence artificielle</dt><dd>Claude pour accélérer l'analyse, l'automatisation et la rédaction, avec vérification systématique des résultats</dd></div>
+      <div><dt>Langues</dt><dd>Français et anglais</dd></div>
+    </dl>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Je cherche un poste d'analyste de données à Québec.</h2>
+    <p>Vous avez une question sur un projet ou une offre à me proposer ? Écrivez-moi, je réponds rapidement.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:mvondodave@gmail.com">mvondodave@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/dave-mvondo-403713239/">LinkedIn</a>
+      <a class="btn" href="https://github.com/zomloa">GitHub</a>
+    </div>
+  </section>
 
 </div>
+<footer>
+  <div class="wrap">David Mvondo Medjo, Québec. Projets et code disponibles sur GitHub.</div>
+</footer>
 </body>
 </html>
