@@ -110,21 +110,37 @@
   .civic p { margin: 6px 0 0; max-width: 46em; }
 
   /* Parcours */
-  .cv { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
-  .cv h3.col { font-size: 1.1rem; color: var(--slate); font-weight: 500; margin-bottom: 18px; }
-  .entry { display: grid; grid-template-columns: 7.5em 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--rule); }
-  .entry .when { color: var(--slate); font-size: .95rem; padding-top: 2px; }
-  .entry h4 { font-family: var(--display); font-size: 1.08rem; margin: 0 0 2px; }
-  .entry .where { color: var(--slate); font-size: .95rem; margin: 0 0 8px; }
-  .entry ul { margin: 0; padding-left: 1.1em; font-size: .98rem; }
-  .entry li { margin-bottom: 4px; }
-  .entry p { font-size: .98rem; margin: 0; }
+  .cv { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .cv-head { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
+  .cv-head .tile { width: 44px; height: 44px; }
+  .cv-head h3 { font-size: 1.35rem; }
+  .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: var(--rule); }
+  .step { position: relative; display: grid; grid-template-columns: 40px 1fr; gap: 18px; padding-bottom: 30px; }
+  .step:last-child { padding-bottom: 0; }
+  .node { width: 40px; height: 40px; border-radius: 50%; background: var(--surface); border: 2px solid var(--blue);
+          color: var(--blue); display: grid; place-items: center; position: relative; z-index: 1; }
+  .node .ico { width: 19px; height: 19px; }
+  .step.key .node { background: var(--blue); color: var(--surface); }
+  .when { display: inline-block; font-size: .85rem; font-weight: 700; color: var(--blue); background: var(--blue-soft);
+          padding: 2px 10px; border-radius: 999px; margin-bottom: 6px; }
+  .step h4 { font-family: var(--display); font-size: 1.12rem; line-height: 1.3; margin: 0 0 2px; }
+  .step .where { color: var(--slate); font-size: .95rem; margin: 0 0 8px; }
+  .step ul { margin: 0; padding-left: 1.1em; font-size: .98rem; }
+  .step li { margin-bottom: 4px; }
+  .step li::marker { color: var(--blue); }
+  .step p { font-size: .98rem; margin: 0; }
 
   /* Compétences */
-  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; margin: 0; }
-  .skills div { padding: 14px 0; border-top: 1px solid var(--rule); }
-  .skills dt { font-family: var(--display); font-weight: 700; margin-bottom: 4px; }
-  .skills dd { margin: 0; color: var(--slate); font-size: .98rem; }
+  .tile { width: 48px; height: 48px; border-radius: 10px; background: var(--blue-soft); color: var(--blue);
+          display: grid; place-items: center; flex: none; }
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .skill { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 22px; }
+  .skill .top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .skill h3 { font-size: 1.12rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .chips li { font-size: .92rem; padding: 4px 11px; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); }
+  .skill p { margin: 0; color: var(--slate); font-size: .95rem; }
 
   /* Contact */
   .contact { padding: 72px 0 88px; }
@@ -135,13 +151,13 @@
   @media (max-width: 900px) {
     .hero, .featured, .cv { grid-template-columns: 1fr; gap: 36px; }
     .grid, .skills { grid-template-columns: 1fr; }
+    .cv { gap: 48px; }
     .civic { grid-template-columns: 1fr; }
-    .entry { grid-template-columns: 1fr; gap: 2px; }
     .nav ul { display: none; }
     .hero { padding-top: 24px; }
   }
   @media (min-width: 640px) and (max-width: 900px) {
-    .grid { grid-template-columns: 1fr 1fr; }
+    .grid, .skills { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -237,90 +253,120 @@
     <h2>Parcours</h2>
     <div class="cv">
       <div>
-        <h3 class="col">Expérience</h3>
-        <div class="entry">
-          <div class="when">2016 – 2026</div>
-          <div>
-            <h4>Administrateur du système de gestion des notes (SIGES)</h4>
-            <p class="where">Université de Dschang, Cameroun</p>
-            <ul>
-              <li>Gestion du système d'information : inscriptions des étudiants et traitement des notes</li>
-              <li>Mise en place d'une plateforme d'enseignement en ligne pour une faculté</li>
-              <li>Membre des équipes de développement d'un système de gestion des concours et d'un système de distribution d'ordinateurs aux étudiants</li>
-              <li>Maintenance informatique et soutien technique aux cours et soutenances en visioconférence</li>
-            </ul>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">2023</div>
-          <div>
-            <h4>Formateur en HTML5 et CSS3</h4>
-            <p class="where">Cameroon Debate Association, Dschang</p>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">2014 – 2015</div>
-          <div>
-            <h4>Enseignant d'informatique</h4>
-            <p class="where">Lycée de Kassap, Bayangam</p>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">2014</div>
-          <div>
-            <h4>Stagiaire</h4>
-            <p class="where">Cameroon Telecommunications, Yaoundé</p>
-          </div>
-        </div>
+        <div class="cv-head"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><h3>Expérience</h3></div>
+        <ol class="timeline">
+          <li class="step key">
+            <span class="node"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></span>
+            <div>
+              <span class="when">2016 – 2026</span>
+              <h4>Administrateur du système de gestion des notes (SIGES)</h4>
+              <p class="where">Université de Dschang, Cameroun</p>
+              <ul>
+                <li>Gestion du système d'information : inscriptions des étudiants et traitement des notes</li>
+                <li>Mise en place d'une plateforme d'enseignement en ligne pour une faculté</li>
+                <li>Membre des équipes de développement d'un système de gestion des concours et d'un système de distribution d'ordinateurs aux étudiants</li>
+                <li>Maintenance informatique et soutien technique aux cours et soutenances en visioconférence</li>
+              </ul>
+            </div>
+          </li>
+          <li class="step">
+            <span class="node"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg></span>
+            <div>
+              <span class="when">2023</span>
+              <h4>Formateur en HTML5 et CSS3</h4>
+              <p class="where">Cameroon Debate Association, Dschang</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="node"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+            <div>
+              <span class="when">2014 – 2015</span>
+              <h4>Enseignant d'informatique</h4>
+              <p class="where">Lycée de Kassap, Bayangam</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="node"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><path d="M12 20h.01"/></svg></span>
+            <div>
+              <span class="when">2014</span>
+              <h4>Stagiaire</h4>
+              <p class="where">Cameroon Telecommunications, Yaoundé</p>
+            </div>
+          </li>
+        </ol>
       </div>
-
       <div>
-        <h3 class="col">Formation</h3>
-        <div class="entry">
-          <div class="when">2024</div>
-          <div>
-            <h4>Licence professionnelle en science des données</h4>
-            <p class="where">ESLSCA, Rabat (Maroc)</p>
-            <p>Science des données pour la gestion des informations des entreprises</p>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">2015</div>
-          <div>
-            <h4>Ingénieur des travaux en informatique</h4>
-            <p class="where">IUT Fotso Victor, Bandjoun</p>
-            <p>Conception et développement d'applications Internet et réseaux</p>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">2014</div>
-          <div>
-            <h4>DUT en informatique</h4>
-            <p class="where">IUT Fotso Victor, Bandjoun</p>
-            <p>Informatique, services et réseaux</p>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">Québec</div>
-          <div>
-            <h4>Équivalence reconnue</h4>
-            <p>Évaluation comparative du ministère de l'Immigration (MIFI) : équivalent d'un baccalauréat en informatique</p>
-          </div>
-        </div>
+        <div class="cv-head"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><h3>Formation</h3></div>
+        <ol class="timeline">
+          <li class="step key">
+            <span class="node"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-3"/></svg></span>
+            <div>
+              <span class="when">2024</span>
+              <h4>Licence professionnelle en science des données</h4>
+              <p class="where">ESLSCA, Rabat (Maroc)</p>
+              <p>Science des données pour la gestion des informations des entreprises</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="node"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <div>
+              <span class="when">2015</span>
+              <h4>Ingénieur des travaux en informatique</h4>
+              <p class="where">IUT Fotso Victor, Bandjoun</p>
+              <p>Conception et développement d'applications Internet et réseaux</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="node"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
+            <div>
+              <span class="when">2014</span>
+              <h4>DUT en informatique</h4>
+              <p class="where">IUT Fotso Victor, Bandjoun</p>
+              <p>Informatique, services et réseaux</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="node"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <div>
+              <span class="when">Québec</span>
+              <h4>Équivalence reconnue</h4>
+              <p class="where">Évaluation comparative du ministère de l'Immigration (MIFI)</p>
+              <p>Équivalent d’un baccalauréat en informatique</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
 
   <section id="competences">
     <h2>Compétences</h2>
-    <dl class="skills">
-      <div><dt>Analyse</dt><dd>Nettoyage et préparation des données, analyse exploratoire, indicateurs, tests statistiques</dd></div>
-      <div><dt>Langages</dt><dd>Python (pandas), SQL</dd></div>
-      <div><dt>Visualisation</dt><dd>Power BI et DAX, Streamlit, Excel, Google Sheets</dd></div>
-      <div><dt>Bases de données</dt><dd>SQLite, MySQL, MongoDB, HeidiSQL</dd></div>
-      <div><dt>Intelligence artificielle</dt><dd>Claude pour accélérer l'analyse, l'automatisation et la rédaction, avec vérification systématique des résultats</dd></div>
-      <div><dt>Langues</dt><dd>Français et anglais</dd></div>
-    </dl>
+    <div class="skills">
+      <article class="skill">
+        <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><h3>Langages</h3></div>
+        <ul class="chips"><li>Python</li><li>pandas</li><li>SQL</li></ul>
+      </article>
+      <article class="skill">
+        <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></span><h3>Visualisation</h3></div>
+        <ul class="chips"><li>Power BI</li><li>DAX</li><li>Streamlit</li><li>Excel</li><li>Google Sheets</li></ul>
+      </article>
+      <article class="skill">
+        <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></span><h3>Bases de données</h3></div>
+        <ul class="chips"><li>SQLite</li><li>MySQL</li><li>MongoDB</li><li>HeidiSQL</li></ul>
+      </article>
+      <article class="skill">
+        <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><h3>Analyse</h3></div>
+        <ul class="chips"><li>Nettoyage des données</li><li>Analyse exploratoire</li><li>Indicateurs</li><li>Tests statistiques</li></ul>
+      </article>
+      <article class="skill">
+        <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span><h3>Intelligence artificielle</h3></div>
+        <p>Claude pour accélérer l'analyse, l'automatisation et la rédaction, avec vérification systématique des résultats.</p>
+      </article>
+      <article class="skill">
+        <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg></span><h3>Langues</h3></div>
+        <ul class="chips"><li>Français</li><li>Anglais</li></ul>
+      </article>
+    </div>
   </section>
 
   <section id="contact" class="contact">
