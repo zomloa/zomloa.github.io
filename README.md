@@ -7,7 +7,7 @@ Site de **David Mvondo Medjo**, analyste de données junior à Québec.
 
 ## Projets
 
-| Projet | Outils | Dossier |
+| Projet | Outils | Lien |
 |---|---|---|
-| Accidents de la route dans la Capitale-Nationale (2011-2022) | Python, SQL, Power BI | [`projets/accidents-capitale-nationale`](projets/accidents-capitale-nationale) |
+| Accidents de la route dans la Capitale-Nationale (2011-2022) | Python, SQL, Power BI | [zomloa/accidents-capitale-nationale](https://github.com/zomloa/accidents-capitale-nationale) |
 | Emplois proches Québec | Collecte web, géolocalisation, JavaScript | [`emplois`](emplois) |
