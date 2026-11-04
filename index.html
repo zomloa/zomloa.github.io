@@ -64,7 +64,14 @@
   p { margin: 0 0 1em; }
 
   /* Navigation */
-  .nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .topbar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--paper) 86%, transparent);
+            backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px);
+            border-bottom: 1px solid transparent; transition: border-color .2s; }
+  .topbar.scrolled { border-bottom-color: var(--rule); }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; gap: 16px; }
+  .nav .right { display: flex; align-items: center; gap: 26px; }
+  .btn.sm { padding: 7px 14px; font-size: .9rem; }
+  .btn .ico { width: 16px; height: 16px; vertical-align: -3px; margin-right: 6px; }
   .nav .who { font-family: var(--display); font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--ink); }
   .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
   .nav ul a { color: var(--slate); text-decoration: none; font-size: .98rem; }
@@ -76,7 +83,12 @@
   .hero .role { font-family: var(--display); font-weight: 500; font-size: 1.35rem; color: var(--slate); margin-bottom: 18px; }
   .hero .intro { max-width: 38em; margin-bottom: 14px; }
   .hero .actions { margin-top: 26px; }
-  .hero .portrait { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; display: block; margin-bottom: 22px; border: 3px solid var(--rule); }
+  .hero .id { display: flex; align-items: center; gap: 18px; margin-bottom: 26px; }
+  .hero .portrait { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; display: block;
+                    border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--blue); }
+  .status { display: inline-flex; align-items: center; gap: 8px; font-size: .92rem; font-weight: 700; color: var(--ink);
+            background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 14px 6px 12px; }
+  .status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #1f9d55; box-shadow: 0 0 0 4px rgba(31,157,85,.18); }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
     display: inline-block; padding: 11px 20px; border-radius: 6px; font-weight: 700;
@@ -86,7 +98,9 @@
   @media (prefers-color-scheme: dark) { .btn.primary { color: #0f1620; } }
 
   /* La donnée mise en avant */
-  .finding { border-left: 4px solid var(--amber); padding: 6px 0 6px 24px; }
+  .finding { margin: 0; background: var(--surface); border: 1px solid var(--rule); border-left: 5px solid var(--amber);
+             border-radius: 12px; padding: 26px 28px; box-shadow: 0 18px 40px -28px rgba(11,40,80,.45); }
+  .finding .kicker { font-size: .9rem; font-weight: 700; color: var(--amber); margin: 0 0 10px; }
   .finding .claim { font-family: var(--display); font-weight: 500; font-size: 1.45rem; line-height: 1.3; margin-bottom: 22px; }
   .bar { margin-bottom: 14px; }
   .bar .label { display: flex; justify-content: space-between; font-size: .95rem; color: var(--slate); margin-bottom: 4px; }
@@ -98,11 +112,17 @@
   @media (prefers-reduced-motion: reduce) { .bar .fill { animation: none; } }
   .finding .source { font-size: .88rem; color: var(--slate); margin: 16px 0 0; }
 
-  section { padding: 64px 0; border-top: 1px solid var(--rule); }
+  section { padding: 80px 0; }
+  section > h2 { position: relative; padding-top: 18px; }
+  section > h2::before { content: ""; position: absolute; top: 0; left: 0; width: 44px; height: 4px; border-radius: 2px; background: var(--amber); }
+  .band { background: var(--surface); box-shadow: 0 0 0 100vmax var(--surface); clip-path: inset(0 -100vmax); }
+  .band .skill, .band .method li, .case .method li { background: var(--paper); }
+  .band .node { background: var(--surface); }
 
   /* Projets */
   .shot { display: block; }
   .tools { color: var(--slate); font-size: .95rem; margin: 8px 0 16px; }
+  .case { background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; padding: 36px; }
   .case-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; margin-bottom: 32px; }
   .case-head h3 { font-size: 1.6rem; }
   .case-head p { max-width: 36em; }
@@ -179,10 +199,14 @@
   .skill p { margin: 0; color: var(--slate); font-size: .95rem; }
 
   /* Contact */
-  .contact { padding: 72px 0 88px; }
-  .contact h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); max-width: 18em; margin-bottom: 18px; }
-  .contact p { max-width: 38em; }
-  footer { border-top: 1px solid var(--rule); padding: 24px 0 40px; color: var(--slate); font-size: .92rem; }
+  .contact { margin: 40px 0 0; padding: 64px 56px; border-radius: 20px; background: #0e2a52; color: #e9f0fa; }
+  .contact h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.5rem); line-height: 1.15; max-width: 16em; margin-bottom: 16px; padding-top: 0; }
+  .contact h2::before { display: none; }
+  .contact p { max-width: 38em; color: #c6d4e8; }
+  .contact .btn { border-color: #8fb2e6; color: #fff; }
+  .contact .btn.primary { background: var(--amber); border-color: var(--amber); color: #1a1405; }
+  .contact .btn:focus-visible { outline-color: #fff; }
+  footer { padding: 28px 0 44px; color: var(--slate); font-size: .92rem; }
 
   @media (max-width: 900px) {
     .hero, .case-head, .cv { grid-template-columns: 1fr; gap: 36px; }
@@ -193,6 +217,9 @@
     .civic { grid-template-columns: 1fr; }
     .nav ul { display: none; }
     .hero { padding-top: 24px; }
+    .case { padding: 22px; }
+    .contact { padding: 40px 24px; border-radius: 14px; }
+    section { padding: 60px 0; }
   }
   @media (min-width: 640px) and (max-width: 900px) {
     .skills, .method { grid-template-columns: 1fr 1fr; }
@@ -200,32 +227,40 @@
 </style>
 </head>
 <body>
-<div class="wrap">
-
-  <nav class="nav" aria-label="Navigation principale">
+<div class="topbar" id="topbar"><div class="wrap">
+  <nav class="nav">
     <a class="who" href="#">David Mvondo Medjo</a>
-    <ul>
-      <li><a href="#projets">Projets</a></li>
-      <li><a href="#parcours">Parcours</a></li>
-      <li><a href="#competences">Compétences</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="right">
+      <ul>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn sm primary" href="assets/CV_David_Mvondo_Medjo.pdf" download><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Mon CV</a>
+    </div>
   </nav>
+</div></div>
+<div class="wrap">
 
   <header class="hero">
     <div>
-      <img class="portrait" src="assets/david.jpg" alt="Photo de David Mvondo Medjo" width="112" height="112">
+      <div class="id">
+        <img class="portrait" src="assets/david.jpg" alt="Photo de David Mvondo Medjo" width="92" height="92">
+        <span class="status">Disponible à Québec</span>
+      </div>
       <h1>David Mvondo Medjo</h1>
       <p class="role">Analyste de données à Québec, qui intègre l’IA à chaque étape de l’analyse</p>
       <p class="intro">Je transforme des données brutes en constats clairs avec Python, SQL et Power BI, en m'appuyant sur l'IA pour aller plus vite sans rien céder sur la rigueur. Dix ans à administrer le système de notes d'une université m'ont donné un réflexe : vérifier chaque chiffre avant de le présenter.</p>
       <div class="actions">
         <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn" href="assets/CV_David_Mvondo_Medjo.pdf" download>Télécharger mon CV</a>
         <a class="btn" href="https://www.linkedin.com/in/david-mvondo-medjo-403713239/">LinkedIn</a>
-        <a class="btn" href="https://github.com/zomloa">GitHub</a>
       </div>
     </div>
 
     <figure class="finding" aria-label="Exemple de résultat d'analyse">
+      <p class="kicker">Résultat clé de mon analyse</p>
       <p class="claim">Dans la Capitale-Nationale, les accidents de la route sont moins souvent graves que dans le reste du Québec, 11 années sur 12.</p>
       <div class="bar">
         <div class="label"><span>Capitale-Nationale</span><strong>0,95 %</strong></div>
@@ -317,7 +352,7 @@
     </aside>
   </section>
 
-  <section id="parcours">
+  <section id="parcours" class="band">
     <h2>Parcours</h2>
     <div class="cv">
       <div>
@@ -440,8 +475,8 @@
         <ul class="chips"><li>Claude</li><li>Exploration des données</li><li>Code Python et SQL</li><li>Automatisation</li><li>Rédaction de rapports</li><li>Vérification des résultats</li></ul>
       </article>
       <article class="skill">
-        <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg></span><h3>Langue</h3></div>
-        <ul class="chips"><li>Français</li></ul>
+        <div class="top"><span class="tile"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg></span><h3>Langue et certifications</h3></div>
+        <ul class="chips"><li>Français</li><li>Claude 101 (Anthropic)</li><li>Claude Cowork (Anthropic)</li><li>Équivalence MIFI</li></ul>
       </article>
     </div>
   </section>
@@ -451,6 +486,7 @@
     <p>Vous avez une question sur un projet ou une offre à me proposer ? Écrivez-moi, je réponds rapidement.</p>
     <div class="actions">
       <a class="btn primary" href="mailto:mvondodave@gmail.com">mvondodave@gmail.com</a>
+      <a class="btn" href="assets/CV_David_Mvondo_Medjo.pdf" download>Télécharger mon CV</a>
       <a class="btn" href="https://www.linkedin.com/in/david-mvondo-medjo-403713239/">LinkedIn</a>
       <a class="btn" href="https://github.com/zomloa">GitHub</a>
     </div>
@@ -465,6 +501,8 @@
   <img id="lightbox-img" src="" alt="">
 </dialog>
 <script>
+  (function(){ var t=document.getElementById('topbar'); function f(){ t.classList.toggle('scrolled', window.scrollY>8); } window.addEventListener('scroll', f, {passive:true}); f(); })();
+
   (function () {
     var box = document.getElementById('lightbox');
     if (!box || typeof box.showModal !== 'function') return;
